@@ -1,7 +1,7 @@
 ## let's simulate
 
-
-## state process
+RDsim <- function(inds, primary, secondary){
+    ## state process
 inds.each <- 100
 prim.occ <- 10
 prim.mat <- matrix(0, nrow = inds.each*prim.occ, ncol = prim.occ)
