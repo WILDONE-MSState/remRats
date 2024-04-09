@@ -1,7 +1,7 @@
 Package: remRats
 Type: Package
 Title: Efficient estimation of small mammals population size under removal experiments
-Version: 0.2.0.0
+Version: 0.0.0.0
 Authors@R: c(person("Fer", "Arce", email = "farcego@gmail.com", role = c("aut", "cre")),
 	   person("Manuel", "Ruiz-Aravena", email = "mir41@msstate.edu", role = "ctb")
 	   )
