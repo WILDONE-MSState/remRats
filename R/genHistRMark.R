@@ -1,4 +1,13 @@
-
+##' .. content for \description{} (no empty lines) ..
+##'
+##' .. content for \details{} ..
+##' @title 
+##' @param j 
+##' @param b 
+##' @return 
+##' @examples
+##' exHist <- genHistRMark(3, c(200, 150, 125))
+##' @author Fer Arce
 genHistRMark <- function(j,b){
     indi <- sum(b)
     ali <- matrix(, nrow = indi, ncol = j)
@@ -19,4 +28,8 @@ genHistRMark <- function(j,b){
 }
 
 
-U <- u(3, c(100, 50, 25))
+
+
+
+
+
