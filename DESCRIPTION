@@ -1,6 +1,10 @@
 Package: remRats
 Type: Package
+<<<<<<< HEAD
 Title: Efficient estimation of small Mammals Population Size under removal experiments
+=======
+Title: Efficient estimation of Small mammals population size under removal experiments
+>>>>>>> main
 Version: 0.0.0.0
 Authors@R: c(person("Fer", "Arce", email = "farcego@gmail.com", role = c("aut", "cre"))
 Description: Package remRats contains a collection of functions in-purposed design to estimate population size of small mammals subject to remnoval experiments. It its origins, it was designed to process non spatially splicit removal experiments. It is now being updated to accomodate these models.
