@@ -2,7 +2,7 @@
 ##'
 ##' .. content for \details{} ..
 ##' @title 
-##' @param Data 
+##' @param Data an object of class...
 ##' @param engine 
 ##' @param model 
 ##' @return
