@@ -4,8 +4,8 @@
 ##' @title 
 ##' @param N population size
 ##' @param p capturability
-##' @param j number of occasions
-##' @return 
+##' @param j number of removal occasions
+##' @return
 ##' @author Fer Arce
 remSim<-function(N,p,j){
     Capt<-numeric(j)
