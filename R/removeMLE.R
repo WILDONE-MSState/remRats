@@ -1,7 +1,7 @@
 ##' .. content for \description{} (no empty lines) ..
 ##'
-##' .. content for \details{} ..
-##' @title 
+##'Runbs a model of type extreme behaviour as suggested in Otis et al.
+##' @title Population estimation
 ##' @param Data an object of class...
 ##' @param engine 
 ##' @param model 
