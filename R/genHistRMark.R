@@ -1,6 +1,6 @@
 ##' This function generate individual trapping histories suitable to be analised by RMark (and theefore MARK) 
 ##'
-##' 
+##' This is a detailed description
 ##' @title Generate trapping histories for RMArk
 ##' @param b vector of class numeric containing a sequence of numbers representiong the total number of animals extracted per night
 ##' @param j nunmeric. Number of removal events considering for futher analysis
