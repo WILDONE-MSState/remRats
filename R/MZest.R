@@ -1,7 +1,7 @@
 ##' Estimation of population size after two consecutive renmoval
 ##' sessions using Moran-Zippin estimator
 ##'
-##' Function to estimate the size of a population subject of two consecutive removal occasions. More info of the formulas in:
+##' Function to estimate the size of a population subject of two consecutive removal occasions. This should not be used, but it is kept here because sometimes only two night occassions are performed. More info of the formulas in:
 ##' Moran, P. A. P. (1951). A mathematical theory of animal trapping. Biometrica, 38, 307-311.
 ##' Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. Wildlife monographs, 62, 1-135.
 ##' Zippin, C. (1956). An evaluation of the removal method of estimating animal populations. Biometrics, 12, 163-189.
