@@ -1,14 +1,14 @@
-##' .. content for \description{} (no empty lines) ..
+##' This function generate individual trapping histories suitable to be analised by RMark (and theefore MARK) 
 ##'
-##' .. content for \details{} ..
-##' @title 
-##' @param j 
-##' @param b 
-##' @return 
+##' 
+##' @title Generate trapping histories for RMArk
+##' @param b vector of class numeric containing a sequence of numbers representiong the total number of animals extracted per night
+##' @param j nunmeric. Number of removal events considering for futher analysis
+##' @return an object of class data.frame containing trapping histories formated to be used by RMark
 ##' @examples
 ##' exHist <- genHistRMark(3, c(200, 150, 125))
 ##' @author Fer Arce
-genHistRMark <- function(j,b){
+genHistRMark <- function(b,j){
     indi <- sum(b)
     ali <- matrix(, nrow = indi, ncol = j)
     ba <- cumsum(b)
