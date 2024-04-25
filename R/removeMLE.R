@@ -5,7 +5,7 @@
 ##' @param Data an object of class...
 ##' @param engine to be developed, if NULL, mark is used
 ##' @param model to be filled for covartiates
-##' @return
+##' @returnPopulatioin size estimate
 ##' @examples
 ##' exPop <- removeMLE(exHist)
 ##' @author Fer Arce

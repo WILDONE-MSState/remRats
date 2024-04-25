@@ -1,4 +1,4 @@
-##' Simple function to simulate removal datasets
+##' Function to simulate removal datasets
 ##'
 ##' it needs somehow to stop at zero and fill with zeroes after all individuals have been removed
 ##' @title Removal simulation
