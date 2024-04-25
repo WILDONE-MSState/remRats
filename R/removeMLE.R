@@ -10,6 +10,7 @@
 ##' exPop <- removeMLE(exHist)
 ##' @author Fer Arce
 removeMLE <- function(Data, engine = NULL, model = NULL){
+    stopifnot(class(Data) == "HistRMarkLong")
     require(RMark)
     c.1 = list(formula=~1, fixed = 0)
     if(.Platform$OS.type == 'windows'){
@@ -19,9 +20,12 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
     }
     
     sink(file = File)
-    ren<-mark(Data,model="Closed",model.parameters=list(c=c.1),delete=TRUE, hessian = TRUE, silent = TRUE)
+    data.mark <- data.frame(ch = Data[[1]]$ch, ind = Data[[1]]$ch)
+    ren<-mark(data.mark,model="Closed",model.parameters=list(c=c.1),delete=TRUE, hessian = TRUE, silent = TRUE)
     sink()
     N <- ren$results$derived
     ## anyadir una class chula aqui
-    return(N)
+    output <- list(data = Data, result = N)
+    class(output) <- 'fittedRemMLE'
+    return(output)
 }
