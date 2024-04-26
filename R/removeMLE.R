@@ -20,7 +20,9 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
     
     sink(file = File)
     data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
-    ren<-RMark::mark(data.mark,model="Closed",model.parameters=list(c=c.1),delete=TRUE, hessian = TRUE, silent = TRUE)
+    ren<-RMark::mark(data.mark,model="Closed",
+                     model.parameters=list(c=c.1),
+                     delete=TRUE, hessian = TRUE, silent = TRUE)
     sink()
     N <- ren$results$derived
     ## anyadir una class chula aqui
