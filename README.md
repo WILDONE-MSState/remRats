@@ -18,7 +18,7 @@ Simplest methods like Moran-Zippin (Moran 1951, Zippin 1956, 1958).  an extreme 
 
 
 ### References:
-Moran, P. A. P. (1951). A mathematical theory of animal trapping. *Biometrica*, 38, 307-311.
-Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
-Zippin, C. (1956). An evaluation of the removal method of estimating animal populations. *Biometrics*, 12, 163-189.
-Zippin, C. (1958). The removal method of population estimation. *Journal of Wildlife Management*, 22, 82-90.
+- Moran, P. A. P. (1951). A mathematical theory of animal trapping. *Biometrica*, 38, 307-311.\n
+- Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.\n
+- Zippin, C. (1956). An evaluation of the removal method of estimating animal populations. *Biometrics*, 12, 163-189.\n
+- Zippin, C. (1958). The removal method of population estimation. *Journal of Wildlife Management*, 22, 82-90.\n
