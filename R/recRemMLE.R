@@ -35,8 +35,9 @@ recRemMLE <- function(Data, events, recursive = TRUE){
 
 
 print.fittedRemMLERec <- function(object){
-    cat('\nEvolution of the Population size estimate\nat the start of the removal experiment:\n')
-    print(object[[2]])
+    cat('\nEvolution of the Population size estimate\nat the start of the removal experiment:\n\n')
+    print(round(object[[2]], 2))
+    cat('\n')
 }
 
 
