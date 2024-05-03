@@ -1,7 +1,7 @@
 ##' This function fit a closed population CMR model 
 ##'
 ##'Runbs a model of type extreme behaviour as suggested in Otis et al. (1978)
-##' @title Population estimation
+##' @title estimation of population size of removal experiments using MLE
 ##' @param Data an object of class \code{HistRMarkLong}
 ##' @param engine not implemented
 ##' @param model not implemented
@@ -55,16 +55,30 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
 ##' @return 
 ##' @author Fer Arce
 print.fittedRemMLE <- function(object){
-    cat('\nPopulation size at the start of the\nremoval experiment:\n')
+    cat('\nPopulation size at the start of the\nremoval experiment:\n\n')
     print(object$result$`N Population Size`)
 }
-##' .. content for \description{} (no empty lines) ..
+
+
+##' Convert objects of class fittedRemMLE to a data.frame
 ##'
-##' .. content for \details{} ..
-##' @title 
-##' @param object 
-##' @return 
+##' This method extends the generic `as.data.frame` function for
+##' objects of class \code{fittedRemMLE}. It extracts the most
+##' relevant component of the object, which is a data frame containing
+##' the result of the model estimation of Population size.
+##' @param x an object of class \code{fittedRemMLE}
+##' @method as.data.frame fittedRemMLE
+##' @return a data frame containing one row with the following columns:
+##' \itemize{
+##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
+##' \item se: estandard error of the estimate
+##' \item lcl: 95\% lower confidence interval
+##' \item ucl: 95\% upper confidence interval
+##' }
 ##' @author Fer Arce
-as.data.frame.fittedRemMLE <- function(object){
-    return(object[[2]][[1]])
+##' @export
+##' @examples
+##' myEstimate <- as.data.frame(exPop)
+as.data.frame.fittedRemMLE <- function(x){
+    return(x[[2]][[1]])
 }
