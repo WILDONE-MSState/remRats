@@ -1,7 +1,12 @@
-##' This function generates an estimate of population size after two consecutive renmoval
-##' sessions using Moran-Zippin estimator
+##' This function generates an estimate of population size after two
+##' consecutive renmoval sessions using Moran-Zippin estimator
 ##'
-##' Function to estimate the size of a population subject of two consecutive removal occasions. This function is provided for reference, and its use is strongly discouraged. The use of function \code{removeMLE} should be the prefered approach as it adds more flexibility..
+##' Function to estimate the size of a population subject of two
+##' consecutive removal occasions. This function is provided for
+##' reference, as it relies in strong asumptions like equal
+##' catchability of individuals. Its use is strongly discouraged. The
+##' use of function \code{removeMLE} should be the prefered approach
+##' as it adds more flexibility.
 ##'
 ##' @references Moran, P. A. P. (1951). A mathematical theory of animal trapping. Biometrica, 38, 307-311.
 ##' 
@@ -11,7 +16,7 @@
 ##' @title Moran-Zippin estimator for two consecutive removal experiments
 ##' @param n1 Number of individuals removed in the first event
 ##' @param n2 Number of individuals removed in the second event
-##' @return an object of \code{class data.frame} returning the following values: \cr
+##' @return a data frame containing the following values: \cr
 ##' \itemize{
 ##' \item Estimate: estimated population size
 ##' \item sd: standard error of the Estimate
