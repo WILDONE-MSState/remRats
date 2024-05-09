@@ -1,10 +1,11 @@
-##' This function fit a closed population CMR model 
+
+##' Function fit a closed population CMR model 
 ##'
-##'Runbs a model of type extreme behaviour as suggested in Otis et al. (1978)
-##' @title estimation of population size of removal experiments using MLE
+##'This function fit a closed capture-mark-recapture model with extreme behavioural response (complete tra-shyness). The rationale of this approach is that an extreme trap-shyness behavior will result in capture histories consisting on only one capture per individual and thus becoming a removal experiment (either released or removed, animals won't occupy the traps again -at least during the survery term). This approach is suggested in Otis et al. (1978) and has been extensively tested via simulations.
+##'
+##' This method fiot a multinomial Mtbh model implenmented in MARK and called triough RMak package. Instructions on how to install RMark can be found in the PhiDot website http://www.phidot.org
+##' @title estimation of population size of removal experiments using MLE over an extreme Mtbh model.
 ##' @param Data an object of class \code{HistRMarkLong}
-##' @param engine not implemented
-##' @param model not implemented
 ##' @references Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
 ##' @return an object of class \code{fittedRemMLE} containing a list of two elements: \cr
 ##' \itemize{
@@ -20,7 +21,7 @@
 ##' @examples
 ##' exPop <- removeMLE(exHist)
 ##' @author Fer Arce
-removeMLE <- function(Data, engine = NULL, model = NULL){
+removeMLE <- function(Data){
     stopifnot(class(Data) == "HistRMarkLong")
     c.1 = list(formula=~1, fixed = 0)
     if(.Platform$OS.type == 'windows'){
@@ -28,7 +29,6 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
     } else {
         File <- '/dev/null'
     }
-    
     sink(file = File)
     data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
     ren<-RMark::mark(data.mark,model="Closed",
@@ -36,8 +36,7 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
                      delete=TRUE, hessian = TRUE, silent = TRUE)
     sink()
     N <- ren$results$derived
-    ## anyadir una class chula aqui
-    output <- list(data = Data, result = N)
+    output <- list(Data = Data, result = N)
     class(output) <- 'fittedRemMLE'
     return(output)
 }
@@ -47,16 +46,27 @@ removeMLE <- function(Data, engine = NULL, model = NULL){
 
 
 
-##' .. content for \description{} (no empty lines) ..
+##' Printing method objects of class fittedRemMLE to the console
 ##'
-##' .. content for \details{} ..
-##' @title 
-##' @param object 
-##' @return 
+##' This method extend the generic `print` function for objects of
+##' class \code{fittedRemMLE}. It prints to the console the Estimated
+##' population size of the population being monitored.
+##' @param x an object of class \code{fittedRemMLE}
+##' @return prints a message in the console with the main results of the model:
+##' \itemize{
+##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
+##' \item se: estandard error of the estimate
+##' \item lcl: 95\% lower confidence interval
+##' \item ucl: 95\% upper confidence interval
+##' }
 ##' @author Fer Arce
-print.fittedRemMLE <- function(object){
+##' @method print fittedRemMLE
+##' @export
+##' @examples
+##' print(exPop)
+print.fittedRemMLE <- function(x){
     cat('\nPopulation size at the start of the\nremoval experiment:\n\n')
-    print(object$result$`N Population Size`)
+    print(x$result$`N Population Size`)
 }
 
 
