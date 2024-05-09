@@ -8,12 +8,14 @@
 ##' use of function \code{removeMLE} should be the prefered approach
 ##' as it adds more flexibility.
 ##'
+##' A major problem of the Moran-Zippin estimator is that it requires that the number of individuals removed in the second event must be smaller than the number removed in the first event
+##'
 ##' @references Moran, P. A. P. (1951). A mathematical theory of animal trapping. Biometrica, 38, 307-311.
 ##' 
 ##' Zippin, C. (1956). An evaluation of the removal method of estimating animal populations. Biometrics, 12, 163-189.
 ##' 
 ##' Zippin, C. (1958). The removal method of population estimation. Journal of Wildlife Management, 22, 82-90.
-##' @title Moran-Zippin estimator for two consecutive removal experiments
+##' @title Moran-Zippin estimator for two consecutive removal events
 ##' @param n1 Number of individuals removed in the first event
 ##' @param n2 Number of individuals removed in the second event
 ##' @return a data frame containing the following values: \cr
@@ -30,10 +32,10 @@
 MZest<-function(n1,n2){
     N.pop<- (n1^2) /(n1-n2)
     Sd.pop<- (n1*n2*sqrt(n1+n2)) / (n1-n2)^2
-    lcl<-N.pob-1.96*Sd.pob
-    ucl<-N.pob+1.96*Sd.pob
+    lcl<-N.pop-1.96*Sd.pop
+    ucl<-N.pop+1.96*Sd.pop
     totC <- n1 + n2
-    a <- data.frame(Estimate = N.pob,
-                    sd = Sd.pob,lcl,ucl, totC)
+    a <- data.frame(Estimate = N.pop,
+                    sd = Sd.pop,lcl,ucl, totC)
     return(a)
 }
