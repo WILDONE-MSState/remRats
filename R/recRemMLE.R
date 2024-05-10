@@ -5,6 +5,8 @@
 ##' 
 ##' @title estimation of population size of removal experiments using MLE over an extreme Mtbh model.
 ##' @param Data an object of class \code{HistRMarkLong}
+##' @param events maximum number of events to be considered
+##' @param recursive Logical. If TRUE, it will make the fuill recursive from, to.
 ##' @references Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
 ##' @return an object of class \code{fittedRemMLERec} containing a list of two elements: \cr
 ##' \itemize{
@@ -19,7 +21,7 @@
 ##' }
 ##' @export
 ##' @examples
-##' exPop <- recRemMLE(exHist)
+##' exPop <- recRemMLE(genHistRMark(c(200, 150, 125), 3),3)
 ##' @author Fer Arce
 recRemMLE <- function(Data, events, recursive = TRUE){
     stopifnot(class(Data) == "HistRMarkLong")
@@ -53,6 +55,7 @@ recRemMLE <- function(Data, events, recursive = TRUE){
 ##' class \code{fittedRemMLERec}. It prints to the console the Estimated
 ##' population size of the population being monitored.
 ##' @param x an object of class \code{fittedRemMLERec}
+##' @param ... further arguments to be passed to the class
 ##' @return prints a message in the console with the main results of the model:
 ##' \itemize{
 ##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
@@ -64,8 +67,8 @@ recRemMLE <- function(Data, events, recursive = TRUE){
 ##' @method print fittedRemMLERec
 ##' @export
 ##' @examples
-##' print(exPop)
-print.fittedRemMLERec <- function(x){
+##' print(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
+print.fittedRemMLERec <- function(x, ...){
     cat('\nEvolution of the Population size estimate\nat the start of the removal experiment as the number of remoival events increases:\n\n')
     print(round(x[[2]], 2))
     cat('\n')
@@ -78,6 +81,9 @@ print.fittedRemMLERec <- function(x){
 ##' relevant component of the object, which is a data frame containing
 ##' the result of the recursively estimation of Population size.
 ##' @param x an object of class \code{fittedRemMLE}
+##' @param row.names `NULL` or a character vector giving the row names for the data frame. Missing values are not allowed
+##' @param optional logicalf `TRUE`, setting row names and converting column namesis optional.
+##' @param ... further arguments to be passeds to the generic method
 ##' @method as.data.frame fittedRemMLERec
 ##' @return a data frame containing one row per recursive estimate  with the following columns:
 ##' \itemize{
@@ -89,7 +95,7 @@ print.fittedRemMLERec <- function(x){
 ##' @author Fer Arce
 ##' @export
 ##' @examples
-##' recEst <- as.data.frame(exPop)
-as.data.frame.fittedRemMLERec <- function(object){
+##' recEst <- as.data.frame(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
+as.data.frame.fittedRemMLERec <- function(x, row.names, optional, ...){
     return(x[[2]][[1]])
 }

@@ -1,8 +1,8 @@
-##' Function fit a closed population CMR model 
+##' Function to fit a closed population CMR model 
 ##'
-##'This function fit a closed capture-mark-recapture model with extreme behavioural response (complete tra-shyness). The rationale of this approach is that an extreme trap-shyness behavior will result in capture histories consisting on only one capture per individual and thus becoming a removal experiment (either released or removed, animals won't occupy the traps again -at least during the survery term). This approach is suggested in Otis et al. (1978) and has been extensively tested via simulations.
+##'This function fit a closed capture-mark-recapture model with extreme behavioural response (complete trap-shyness). The rationale of this approach is that an extreme trap-shyness behavior will result in capture histories consisting on only one capture per individual and thus becoming a removal experiment (either released or removed, animals won't occupy the traps again -at least during the survery term). This approach is suggested in Otis et al. (1978) and has been extensively tested via simulations.
 ##'
-##' This method fiot a multinomial Mtbh model implenmented in MARK and called triough RMak package. Instructions on how to install RMark can be found in the PhiDot website http://www.phidot.org
+##' This method fit a multinomial Mtbh model implenmented in MARK and called triough RMak package. Instructions on how to install RMark can be found in the PhiDot website http://www.phidot.org
 ##' @title estimation of population size of removal experiments using MLE over an extreme Mtbh model.
 ##' @param Data an object of class \code{HistRMarkLong}
 ##' @references Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
@@ -19,7 +19,7 @@
 ##' }
 ##' @export
 ##' @examples
-##' exPop <- removeMLE(exHist)
+##' exPop <- removeMLE(genHistRMark(c(100,80,60),3))
 ##' @author Fer Arce
 removeMLE <- function(Data){
     stopifnot(class(Data) == "HistRMarkLong")
@@ -52,6 +52,7 @@ removeMLE <- function(Data){
 ##' class \code{fittedRemMLE}. It prints to the console the Estimated
 ##' population size of the population being monitored.
 ##' @param x an object of class \code{fittedRemMLE}
+##' @param ... further generic arguments to be pased to the generic method 
 ##' @return prints a message in the console with the main results of the model:
 ##' \itemize{
 ##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
@@ -63,8 +64,8 @@ removeMLE <- function(Data){
 ##' @method print fittedRemMLE
 ##' @export
 ##' @examples
-##' print(exPop)
-print.fittedRemMLE <- function(x){
+##' print(removeMLE(genHistRMark(c(100,80,60),3)))
+print.fittedRemMLE <- function(x, ...){
     cat('\nPopulation size at the start of the\nremoval experiment:\n\n')
     print(x$result$`N Population Size`)
 }
@@ -77,6 +78,9 @@ print.fittedRemMLE <- function(x){
 ##' relevant component of the object, which is a data frame containing
 ##' the result of the model estimation of Population size.
 ##' @param x an object of class \code{fittedRemMLE}
+##' @param row.names `NULL` or character vector containing row names for the data frame.
+##' @param optional logical. If `TRUE`, setting row names and converrting column names is optional.
+##' @param ... additional arguments to be passed to or from methods.
 ##' @method as.data.frame fittedRemMLE
 ##' @return a data frame containing one row with the following columns:
 ##' \itemize{
@@ -88,7 +92,7 @@ print.fittedRemMLE <- function(x){
 ##' @author Fer Arce
 ##' @export
 ##' @examples
-##' myEstimate <- as.data.frame(exPop)
-as.data.frame.fittedRemMLE <- function(x){
+##' myEstimate <- as.data.frame(removeMLE(genHistRMark(c(100,80,60),3)))
+as.data.frame.fittedRemMLE <- function(x, row.names, optional, ...){
     return(x[[2]][[1]])
 }

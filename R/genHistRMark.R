@@ -50,13 +50,14 @@ genHistRMark <- function(pop,events, msg = TRUE){
 ##' the R console, preventing console overflow with long but informative
 ##' information.
 ##' @param x and object of class \code{HistRMarkLong}
+##' @param ... further arguments to be passed to the call
 ##' @return a message printed in the console
 ##' @examples
-##' print(myHist)
+##' print(genHistRMark(c(200, 150, 125), 3))
 ##' @method print HistRMarkLong
 ##' @author Fer Arce
 ##' @export
-print.HistRMarkLong <- function(x){
+print.HistRMarkLong <- function(x, ...){
     ##return(x[[1]])
     cat('\nA total of', sum(x[[2]]), 'unique individuals removed \nduring',
         length(x[[2]]), 'sessions have been processed to \nMARK long format as shown below.\n\n')
@@ -73,6 +74,9 @@ print.HistRMarkLong <- function(x){
 ##' relevant component of the object, which is a data frame containing
 ##' the individual removal histories.
 ##' @param x an object of class \code{HistRMarkLong}
+##' @param row.names `NULL`.or a character vector giving the row names for the data frame. Missing values are not allowed.
+##' @param optional logical. if `TRUE`, setting row names and converting column names (to syntactic names: see `make.names`) is optional
+##' @param ... further arguments to be passed to the call
 ##' @return a data frame containig two columns. The first, named ch
 ##'     contains the removal histories, and the second, named ind,
 ##'     contain the number of individual asociated to each
@@ -80,9 +84,9 @@ print.HistRMarkLong <- function(x){
 ##'     package \code{RMark}
 ##' @method as.data.frame HistRMarkLong
 ##' @examples
-##' myCaptHist <- as.data.frame(myHist)
+##' myCaptHist <- as.data.frame(genHistRMark(c(200, 150, 125), 3))
 ##' @author Fer Arce
 ##' @export
-as.data.frame.HistRMarkLong <- function(x){
+as.data.frame.HistRMarkLong <- function(x, row.names, optional, ...){
     return(x[[1]])
 }

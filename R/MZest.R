@@ -36,7 +36,7 @@
 ##' \item ucl: upper value of confidence interval
 ##' }
 ##' @examples
-##' MZest(84,61)
+##' simpEst <- MZest(84,61)
 ##' @export
 ##' @author Fer Arce
 MZest<-function(n1,n2){
