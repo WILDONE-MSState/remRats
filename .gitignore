@@ -5,6 +5,7 @@
 *.org
 
 test/
+progress/
 TODO.org
 *.png
 *.html

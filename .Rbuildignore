@@ -4,3 +4,4 @@ test.R
 README.md
 closed.R
 ^test/
+^progress/
