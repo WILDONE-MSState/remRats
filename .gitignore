@@ -9,6 +9,10 @@ TODO.org
 *.png
 *.html
 
+# custom files
+test.R
+closed.R
+
 # R stuff
 
 # History files
