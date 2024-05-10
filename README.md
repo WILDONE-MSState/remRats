@@ -1,7 +1,10 @@
 # remRats: Efficient estimation of small mammal population size under removal experiment designs
 
-Experimental installation:
+## Installation:
 
+It requires to have installed either devtools or remotes R packages (the latter is recomended):
+
+\## install.packages('remotes')
 remotes::install_github('WILDONE-MSState/remRats')
 
 ## Efficient estimation of population size from data collected under removal experiments
