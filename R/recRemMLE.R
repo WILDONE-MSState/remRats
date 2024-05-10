@@ -1,11 +1,25 @@
-##' .. content for \description{} (no empty lines) ..
+##' Function to fit recursively a closed population CMR model
 ##'
-##' .. content for \details{} ..
-##' @title 
-##' @param pob 
-##' @param events 
-##' @param recursive 
-##' @return 
+##'This function fit closed capture-mark-recapture models with extreme behavioural response (complete trap-shyness)as detailed in Otis et al. (1978). This function calls function \code{removeMLE} recursively an generate a sequence of estimates to see the evolution and estabilization of the Population size estimations and the relative shrinking of the confidence interval. 
+##'
+##' 
+##' @title estimation of population size of removal experiments using MLE over an extreme Mtbh model.
+##' @param Data an object of class \code{HistRMarkLong}
+##' @references Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
+##' @return an object of class \code{fittedRemMLERec} containing a list of two elements: \cr
+##' \itemize{
+##' \item Data: the object of class `HistRMarkLong` used as imput to the function
+##' \item result: The actual results of recursively fitting the removal model to the supplied Data. It is a data frame containing a row per recursive fit with the following information:
+##' \itemize{
+##' \item estimate: the estimated population size
+##' \item se: standard error of the estimate
+##' \item lcl: lower 95% confidence interval value
+##' \item ucl: upper 95% confidence interval value
+##' }
+##' }
+##' @export
+##' @examples
+##' exPop <- recRemMLE(exHist)
 ##' @author Fer Arce
 recRemMLE <- function(Data, events, recursive = TRUE){
     stopifnot(class(Data) == "HistRMarkLong")
@@ -33,14 +47,49 @@ recRemMLE <- function(Data, events, recursive = TRUE){
     return(out)
 }
 
-
-print.fittedRemMLERec <- function(object){
-    cat('\nEvolution of the Population size estimate\nat the start of the removal experiment:\n\n')
-    print(round(object[[2]], 2))
+##' Printing method objects of class fittedRemMLERec to the console
+##'
+##' This method extend the generic `print` function for objects of
+##' class \code{fittedRemMLERec}. It prints to the console the Estimated
+##' population size of the population being monitored.
+##' @param x an object of class \code{fittedRemMLERec}
+##' @return prints a message in the console with the main results of the model:
+##' \itemize{
+##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
+##' \item se: estandard error of the estimate
+##' \item lcl: 95\% lower confidence interval
+##' \item ucl: 95\% upper confidence interval
+##' }
+##' @author Fer Arce
+##' @method print fittedRemMLERec
+##' @export
+##' @examples
+##' print(exPop)
+print.fittedRemMLERec <- function(x){
+    cat('\nEvolution of the Population size estimate\nat the start of the removal experiment as the number of remoival events increases:\n\n')
+    print(round(x[[2]], 2))
     cat('\n')
 }
 
-
-as.data.frame.fittedRemMLE <- function(object){
-    return(object[[2]][[1]])
+##' Convert objects of class fittedRemMLERec to a data.frame
+##'
+##' This method extends the generic `as.data.frame` function for
+##' objects of class \code{fittedRemMLERec}. It extracts the most
+##' relevant component of the object, which is a data frame containing
+##' the result of the recursively estimation of Population size.
+##' @param x an object of class \code{fittedRemMLE}
+##' @method as.data.frame fittedRemMLERec
+##' @return a data frame containing one row per recursive estimate  with the following columns:
+##' \itemize{
+##' \item estimate: estimated number of individuals present in the population at the begining of the removal experiment
+##' \item se: estandard error of the estimate
+##' \item lcl: 95\% lower confidence interval
+##' \item ucl: 95\% upper confidence interval
+##' }
+##' @author Fer Arce
+##' @export
+##' @examples
+##' recEst <- as.data.frame(exPop)
+as.data.frame.fittedRemMLERec <- function(object){
+    return(x[[2]][[1]])
 }
