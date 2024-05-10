@@ -45,7 +45,10 @@ genHistRMark <- function(pop,events, msg = TRUE){
 
 ##' Print objects of class HistRMarkLong to the console
 ##'
-##' This method extends the generic `print` function for objecta of class \code{HistRMarkLong}. It print a summary of information into the R console, avoiding t fill it with long but less informative information.
+##' This method extends the generic `print` function for objects of
+##' class \code{HistRMarkLong}. It print a summary of information into
+##' the R console, preventing console overflow with long but informative
+##' information.
 ##' @param x and object of class \code{HistRMarkLong}
 ##' @return a message printed in the console
 ##' @examples
@@ -54,11 +57,11 @@ genHistRMark <- function(pop,events, msg = TRUE){
 ##' @author Fer Arce
 ##' @export
 print.HistRMarkLong <- function(x){
-    return(x[[1]])
-    ##cat('\nA total of', sum(x[[2]]), 'unique individuals removed \nduring',
-    ##    length(x[[2]]), 'sessions have been processed to \nMARK long format as shown below.\n\n') 
-    ##print(head(u))
-    ##cat('\t...\n')
+    ##return(x[[1]])
+    cat('\nA total of', sum(x[[2]]), 'unique individuals removed \nduring',
+        length(x[[2]]), 'sessions have been processed to \nMARK long format as shown below.\n\n')
+    print(head(x[[1]]))
+    cat('\t...\n')
 }
 
 
