@@ -1,4 +1,3 @@
-
 ##' Function fit a closed population CMR model 
 ##'
 ##'This function fit a closed capture-mark-recapture model with extreme behavioural response (complete tra-shyness). The rationale of this approach is that an extreme trap-shyness behavior will result in capture histories consisting on only one capture per individual and thus becoming a removal experiment (either released or removed, animals won't occupy the traps again -at least during the survery term). This approach is suggested in Otis et al. (1978) and has been extensively tested via simulations.
@@ -18,6 +17,7 @@
 ##' \item ucl: upper 95% confidence interval value
 ##' }
 ##' }
+##' @export
 ##' @examples
 ##' exPop <- removeMLE(exHist)
 ##' @author Fer Arce
