@@ -7,43 +7,44 @@
 CRAN badge](man/figures/badge-cran.svg)
 
 remRats offers a simple but effective platform to estimate the size of a
-population subject to removal experiments (both temporal and permanent
+population subject to removal experiments (either temporal or permanent
 removal).
 
-Removal experiments are common in ecological research. They are used to
-estimate population size, comunity diversity/composition, to manage both
-endangered or invasive populations, or for disease surveillance.
-However, data from removal experiments is oftern presented in a diverse
-set of ways, making them hardly comparably between studies. Futhermore,
-it is often de case where it is only reported the actual number of
-individuals sampled (i.e. for disease surveillance) that hamper its own
-usefulness as with these data delivery there is no way to assess the
-representability of the samples with respect to the population where
-they have been collected..
+Removal experiments are common employed in ecological/conservation
+research. They are used to estimate population size, comunity
+diversity/composition, to manage both endangered or invasive
+populations, or for disease surveillance. However, data from removal
+experiments is oftern presented in a diverse set of ways, making them
+hardly comparably between studies. Futhermore, it is often de case where
+it is only reported the actual number of individuals sampled (i.e. for
+disease surveillance) that hamper its own usefulness as with these data
+delivery there is no way to assess the representability of the samples
+with respect to the population where they have been collected..
 
 remRats fills some of the mentioned limitations by making analysis of
 removal data as simple and consistent as possible. We also conceived
 remRats as a tool to be used ‘on-the-ground’, that is, during the actual
-removal experiment. Duriong the process of collecting individualsk, and
+removal experiment. During the process of collecting individuals, and
 after each session, remRats can be used to evaluate the performance of
-the removal experiment, assesing the precissioh of estimates,
-calculating the proportion of the population already being sampled, and
-projecting the observed trends to estimate the extra effort still needed
-given the requirements of the project).
+the removal experiment, assesing the uncertainty of estimates,
+calculating the proportion of the population already being sampled (of
+critical importance for disease surveillance), and projecting the
+observed trends to estimate the extra effort still needed given the
+requirements of the project).
 
 ## Installation:
 
-You should have an R version \>=4.0.0 installed (It should work with any
-version \>= 3.4.0, but the latest the better). You can check which R
-version you have installed in your machine by typing:
+You should have an R version at least 4.0.0 installed (It should work
+with any version \>= 3.4.0, but the newest the better). You can check
+which R version you have installed in your machine by typing:
 
 ``` r
 R.Version()
 ```
 
-Until it lands on CRAN repository, you will need package
+You will need package
 [remotes](https://cran.r-project.org/package=remotes) to install remRats
-from this repository
+from this repository until it lands on CRAN.
 
 ``` r
 ## install.packages('remotes')
@@ -58,38 +59,41 @@ of the functiones ofered in {remRats}.
 
 ## Problems and bugs
 
-If you have encountered a bug or have found an consistent behaviour when
-using remRats, go to
-[issues](https://github.com/WILDONE-MSState/remRats/issues) and check
-first if there is already an issue with the same problem either open or
-closed. Otherwise, you are welcome to create a new issue there. Just
-make sure to include all the relevant information, including a
-reproducible example. If you don’t know what is a minimal reproducible
-example or how to make it, I recommend the use of package
-[reprex](https://cran.r-project.org/package=reprex).
+If you have encountered a bug or have found an inconsistent behaviour
+when using remRats, go to
+[issues](https://github.com/WILDONE-MSState/remRats/issues) (top-left of
+this web) and check first if there is already an issue with the same
+problem either open or closed. Otherwise, you are welcome to create a
+new issue there. Just make sure to include all the relevant information,
+including a reproducible example. If you don’t know what is a minimal
+reproducible example or how to make it, I recommend the use of package
+[reprex](https://cran.r-project.org/package=reprex) to create it.
 
 ## Methods
 
-The simplest method available is the Moran-Zippin estimator for just two
-sessions (Moran 1951, Zippin 1956, 1958) which we do not recomend to
-use. While ideally it should just perform, it requires of large capture
-probability of individuals, and, in the case of single catch traps, a
-reasonable ammount of traps in relation to the (unknown) size of the
-population. Also, it requires the number of individuals removed in the
-seccon session being smaller than in the first to generate estimate.
+The simplest method available is the Moran-Zippin estimator. Designed
+for just two removal events (Moran 1951, Zippin 1956, 1958) we do not
+recomend to use but it is presented here as sometimes there are only two
+trapping events per session. While ideally it should just perform, it
+still requires of large capture probability of individuals, and, in the
+case of single catch traps, a reasonable large ammount of traps in
+relation to the (unknown) size of the population. Also, it requires the
+number of individuals removed in the seccon session being smaller than
+in the first to generate estimate.
 
 An alternative to it is to fit a model of extreme behavioural response
 (complete trap-shyness) as suggested in Otis et al. (1978). This model,
 often dennoted as M\_tbh consider that individuals once are trapped,
 cannot be re-trapped, thus generating an observed capture history
-equivalen to those generated by genuine removal sampling.
+equivalent to those generated by genuine removal sampling.
 
-The third (and best) approach for non spatially-explicit would be to
-estimate the population size using data augmentation and fiting a
-zero-inflated model of occupancy to the dataset (Royle 2009). The main
-benefit of this approach is that it allow the practitioners to include
-both categorical and continiuos individual covariates, making it much
-flexible to get a good estimate of the population size.
+The third (and best) approach for non spatially-explicit removal
+experiments would be to estimate the population size using data
+augmentation and fiting a zero-inflated model of occupancy to the
+dataset (Royle 2009). The main benefit of this approach is that it allow
+the practitioners to include both categorical and continuous individual
+covariates, making it much flexible to get a good estimate of the
+population size by modelling the capturability as covariate dependent..
 
 ### References:
 
