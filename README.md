@@ -1,5 +1,5 @@
 
-# {remRats} \><img src='man/figures/logo.png' align="right" height="250" />\</
+# {remRats} \><img src='man/figures/logo.png' align="right" height="250" />
 
 ### Efficient estimation of (small mammal) population size under removal experiment designs
 
@@ -18,14 +18,15 @@ actual opoipulation being sampled)
 ## Installation:
 
 You should have an R version \>=4.0.0 installed (the latest the better).
-You can check in which R version you are by typing
+You can check in which R version are you working by typing:
 
 ``` r
 R.Version()
 ```
 
-And then, you need package remotes to install R packages from GitHub
-repositories
+And then, you need package
+[remotes](https://cran.r-project.org/package=remotes) to install R
+packages from GitHub repositories
 
 ``` r
 ## install.packages('remotes')
@@ -34,18 +35,21 @@ remotes::install_github('WILDONE-MSState/remRats')
 ```
 
 In adition, you need to have locally installed in your computer programs
-[MARK](http://www.phidot.org/software/mark/) and [jags (Just Another
-Gibbs Sampler)](https://mcmc-jags.sourceforge.io/) to operate with some
-of the functiones ofered in {remRats}
+[MARK](http://www.phidot.org/software/mark/) and [Just Another Gibbs
+Sampler (JAGS)](https://mcmc-jags.sourceforge.io/) to operate with some
+of the functiones ofered in {remRats}.
 
-## Introduction
+## Problems and bugs
 
-However, as the fundamentals are different, there is a lack of unifying
-approaches both to estimate the parameters of interest, or on how to
-report the results. They also operates at diferent timeframes, shere the
-impact of removals may be relevant or not, also due to population
-processes (for example, how long an area with rodents will need to be
-recolonized, and how it is impacted by the density is unknown).
+If you have encountered a bug or have found an consistent behaviour when
+using {remRats}, go to
+[issues](https://github.com/WILDONE-MSState/remRats/issues) and check
+first if there is already an issue with the same problem either open or
+closed. Otherwise, you are welcome to create a new issue there. Just
+make sure to include all the relevant information, including a
+reproducible example. If you don’t know what is a minimal reproducible
+example or how to make it, I recommend the use of package
+[reprex](https://cran.r-project.org/package=reprex).
 
 Estimation of population parameters of fish (electrofishing),
 erradication of invasive species, translocation of populations of
