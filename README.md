@@ -1,5 +1,5 @@
 
-# {remRats} <a><img src='man/figures/logo.png' align="right" height="250" />\</ a\>
+# {remRats} <a img src='man/figures/logo.png' align="right" height="250" a>
 
 ### Efficient estimation of small mammal population size under removal experiment designs
 
