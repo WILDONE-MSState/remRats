@@ -8,16 +8,18 @@ CRAN badge](man/figures/badge-cran.svg)
 
 remRats offers a simple but effective platform to estimate the size of a
 population subject to removal experiments (both temporal and permanent
-removal). Removal experiments are common in ecological research. They
-are used to estimate population size, comunity diversity/composition, to
-manage both endangered or invasive populations, or for disease
-surveillance. However, data from removal experiments is oftern presented
-in a diverse set of ways, making them hardly comparably between studies.
-Futhermore, it is often de case where it is only reported the actual
-number of individuals sampled (i.e. for disease surveillance) that
-hamper its own usefulness as with these analysis there is no way to
-assess the representability of the samples with respect to the
-population where they have been collected..
+removal).
+
+Removal experiments are common in ecological research. They are used to
+estimate population size, comunity diversity/composition, to manage both
+endangered or invasive populations, or for disease surveillance.
+However, data from removal experiments is oftern presented in a diverse
+set of ways, making them hardly comparably between studies. Futhermore,
+it is often de case where it is only reported the actual number of
+individuals sampled (i.e. for disease surveillance) that hamper its own
+usefulness as with these analysis there is no way to assess the
+representability of the samples with respect to the population where
+they have been collected..
 
 remRats fills some of the mentioned limitations by making analysis of
 removal data as simple and consistent as possible. We also conceived
