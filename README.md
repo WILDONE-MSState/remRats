@@ -1,12 +1,24 @@
 
 # {remRats} \><img src='man/figures/logo.png' align="right" height="250" />\</
 
-### Efficient estimation of small mammal population size under removal experiment designs
+### Efficient estimation of (small mammal) population size under removal experiment designs
+
+{remRats} offers a simple platform to efficiently estimate the size of a
+population subject to removal experiments (both temporal and permanent
+removal). Removal experiments are common in ecological research. They
+are used to estimate population size, comunity composition, to manage
+both endangered or invasive populations, or for disease surveillance.
+
+{remRats} fill the gaps by making analysis of removal data as simple and
+cosistent as possible, to the point of being capable of, if using
+‘on-the-ground’, to evaluate the performance of the removal
+experiment, checking agaionst the goals (precission, proportion of the
+actual opoipulation being sampled)
 
 ## Installation:
 
-You should have an R version \>=4.0.0 installed (preferably latest). You
-can check in which R version you are by typing
+You should have an R version \>=4.0.0 installed (the latest the better).
+You can check in which R version you are by typing
 
 ``` r
 R.Version()
@@ -21,17 +33,19 @@ repositories
 remotes::install_github('WILDONE-MSState/remRats')
 ```
 
+In adition, you need to have locally installed in your computer programs
+[MARK](http://www.phidot.org/software/mark/) and [jags (Just Another
+Gibbs Sampler)](https://mcmc-jags.sourceforge.io/) to operate with some
+of the functiones ofered in {remRats}
+
 ## Introduction
 
-Removal experiments are common in ecological research. They are used to
-estimate population size, comunity ecology, to manage both endangered or
-invasive populations, or for disease surveillance. However, as the
-fundamentals are different, there is a lack of unifying approaches both
-to estimate the parameters of interest, or on how to report the results.
-They also operates at diferent timeframes, shere the impact of removals
-may be relevant or not, also due to population processes (for example,
-how long an area with rodents will need to be recolonized, and how it is
-impacted by the density is unknown).
+However, as the fundamentals are different, there is a lack of unifying
+approaches both to estimate the parameters of interest, or on how to
+report the results. They also operates at diferent timeframes, shere the
+impact of removals may be relevant or not, also due to population
+processes (for example, how long an area with rodents will need to be
+recolonized, and how it is impacted by the density is unknown).
 
 Estimation of population parameters of fish (electrofishing),
 erradication of invasive species, translocation of populations of
