@@ -1,10 +1,26 @@
 
 # remRats <img src='man/figures/logo.png' align="right" height="250" />
 
-### Efficient estimation of (small mammal) population size under removal experiment designs
+### Efficient estimation of (small mammal) population size under removal experiment designs for disease surveillance
 
 ![remRats lifecycle](man/figures/lifecycle-experimental.svg) ![remRats
 CRAN badge](man/figures/badge-cran.svg)
+
+## Author/s
+
+  - Dr. Fernando Arce, Mississippi state University. (Author, Developer,
+    Mantainer)
+  - Dr. Manuel Ruiz-Aravena, Mississippi state University. (Contributor)
+  - Dr. Michael K. Sandel, Mississippi state University. (Contributor)
+
+## Funding
+
+USDA ARS grant number: 58-6064-3-017
+
+Project title: Developing Detection and Modeling Tools for the
+Geospatial and Environmental Epidemiology of Animal Disease
+
+## Overview
 
 remRats offers a simple but effective platform to estimate the size of a
 population subject to removal experiments (either temporal or permanent
@@ -19,7 +35,7 @@ hardly comparably between studies. Futhermore, it is often de case where
 it is only reported the actual number of individuals sampled (i.e. for
 disease surveillance) that hamper its own usefulness as with these data
 delivery there is no way to assess the representability of the samples
-with respect to the population where they have been collected..
+with respect to the population where they have been collected.
 
 remRats fills some of the mentioned limitations by making analysis of
 removal data as simple and consistent as possible. We also conceived
@@ -95,7 +111,7 @@ the practitioners to include both categorical and continuous individual
 covariates, making it much flexible to get a good estimate of the
 population size by modelling the capturability as covariate dependent..
 
-### References:
+## References:
 
   - Moran, P. A. P. (1951). A mathematical theory of animal trapping.
     *Biometrica*, 38, 307-311.

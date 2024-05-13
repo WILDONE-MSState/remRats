@@ -14,15 +14,30 @@ knitr::opts_chunk$set(
 
 # remRats <img src='man/figures/logo.png' align="right" height="250" />
 
-### Efficient estimation of (small mammal) population size under removal experiment designs
+### Efficient estimation of (small mammal) population size under removal experiment designs for disease surveillance
 
 
 ![remRats lifecycle](man/figures/lifecycle-experimental.svg)
 ![remRats CRAN badge](man/figures/badge-cran.svg)
 
+
+## Author/s
+
+- Dr. Fernando Arce, Mississippi state University. (Author, Developer,  Mantainer)
+- Dr. Manuel Ruiz-Aravena, Mississippi state University. (Contributor)
+- Dr. Michael K. Sandel, Mississippi state University. (Contributor)
+
+## Funding
+
+USDA ARS grant number: 58-6064-3-017
+
+Project title: Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease
+
+## Overview
+
 remRats offers a simple but effective platform to estimate the size of a population subject to removal experiments (either temporal or permanent removal).
 
-Removal experiments are common employed in ecological/conservation research. They are used to estimate population size, comunity diversity/composition, to manage both endangered or invasive populations, or for disease surveillance. However, data from removal experiments is oftern presented in a diverse set of ways, making them hardly comparably between studies. Futhermore, it is often de case where it is only reported the actual number of individuals sampled (i.e. for disease surveillance) that hamper its own usefulness as with these data delivery there is no way to assess the representability of the samples with respect to the population where they have been collected..
+Removal experiments are common employed in ecological/conservation research. They are used to estimate population size, comunity diversity/composition, to manage both endangered or invasive populations, or for disease surveillance. However, data from removal experiments is oftern presented in a diverse set of ways, making them hardly comparably between studies. Futhermore, it is often de case where it is only reported the actual number of individuals sampled (i.e. for disease surveillance) that hamper its own usefulness as with these data delivery there is no way to assess the representability of the samples with respect to the population where they have been collected.
 
 remRats fills some of the mentioned limitations by making analysis of removal data as simple and consistent as possible. We also conceived remRats as a tool to be used 'on-the-ground', that is, during the actual removal experiment. During the process of collecting individuals, and after each session, remRats can be used to evaluate the performance of the removal experiment, assesing the uncertainty of estimates, calculating the proportion of the population already being sampled (of critical importance for disease surveillance), and projecting the observed trends to estimate the extra effort still needed given the requirements of the project).
 
@@ -56,9 +71,8 @@ An alternative to it is to fit a model of extreme behavioural response (complete
 The third (and best) approach for non spatially-explicit removal experiments  would be to estimate the population size using data augmentation and fiting a zero-inflated model of occupancy to the dataset (Royle 2009). The main benefit of this approach is that it allow the practitioners to include both categorical and continuous individual covariates, making it much flexible to get a good estimate of the population size by modelling the capturability as covariate dependent..
 
 
+## References:
 
-
-### References:
 - Moran, P. A. P. (1951). A mathematical theory of animal trapping. *Biometrica*, 38, 307-311.
 - Otis, D. L., Burnham, K. P., White, G. C., and Anderson, D. R. (1978). Statistical inference from capture data on closed animal populations. *Wildlife monographs*, 62, 1-135.
 - Royle, A. J. (2009). Analysis of Capture-Recapture Models with Individual Covariates Using Data Augmentation. *Biometrics*, 65, 267-274.
