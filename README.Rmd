@@ -12,12 +12,14 @@ knitr::opts_chunk$set(
 ```
 
 
-# {remRats} <img src='man/figures/logo.png' align="right" height="250" />
+# remRats <img src='man/figures/logo.png' align="right" height="250" />
 
 ### Efficient estimation of (small mammal) population size under removal experiment designs
 
 
 ![remRats lifecycle](man/figures/lifecycle-experimental.svg)
+![remRats CRAN badge](man/figures/badge-cran.svg)
+
 {remRats} offers a simple platform to efficiently estimate the size of a population subject to removal experiments (both temporal and permanent removal). Removal experiments are common in ecological research. They are used to estimate population size, comunity composition, to manage both endangered or invasive populations, or for disease surveillance. However, data from removal experiments is oftern presented in a diverse set of ways, making them hardly comparably between studies. Futhermore, it is often de case where it is only reported the actual number of individuals sampled (i.e. for disease surveillance) that hamper its own usefulness as fromn these ways of representing data there is no way to assess its representability with respecto to the population being sampled.
 
 {remRats} fills some of the mentioned limitations by making analysis of removal data as simple and cosistent as possible. We also make it aiming to be used 'on-the-ground', that is, during the actual removal experiment, after each session, to evaluate the performance of the removal experiment, checking agaionst theactual  goals (precission, proportion of the actual opopulation already being sampled/collected).

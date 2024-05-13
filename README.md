@@ -1,10 +1,12 @@
 
-# {remRats} <img src='man/figures/logo.png' align="right" height="250" />
+# remRats <img src='man/figures/logo.png' align="right" height="250" />
 
 ### Efficient estimation of (small mammal) population size under removal experiment designs
 
-![remRats lifecycle](man/figures/lifecycle-experimental.svg) {remRats}
-offers a simple platform to efficiently estimate the size of a
+![remRats lifecycle](man/figures/lifecycle-experimental.svg) ![remRats
+CRAN badge](man/figures/badge-cran.svg)
+
+{remRats} offers a simple platform to efficiently estimate the size of a
 population subject to removal experiments (both temporal and permanent
 removal). Removal experiments are common in ecological research. They
 are used to estimate population size, comunity composition, to manage
