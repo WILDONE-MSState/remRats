@@ -8,10 +8,10 @@ CRAN badge](man/figures/badge-cran.svg)
 
 ## Author/s
 
-  - Dr. Fernando Arce, Mississippi state University. (Author, Developer,
+  - Dr. Fernando Arce, Mississippi State University. (Author, Developer,
     Mantainer)
-  - Dr. Manuel Ruiz-Aravena, Mississippi state University. (Contributor)
-  - Dr. Michael K. Sandel, Mississippi state University. (Contributor)
+  - Dr. Manuel Ruiz-Aravena, Mississippi State University. (Contributor)
+  - Dr. Michael W. Sandel, Mississippi State University. (Contributor)
 
 ## Funding
 
@@ -75,8 +75,8 @@ of the functiones ofered in {remRats}.
 
 ## Problems and bugs
 
-If you have encountered a bug or have found an inconsistent behaviour
-when using remRats, go to
+If you have encountered a bug or have found an inconsistent/unexpected
+behaviour while using remRats, go to
 [issues](https://github.com/WILDONE-MSState/remRats/issues) (top-left of
 this web) and check first if there is already an issue with the same
 problem either open or closed. Otherwise, you are welcome to create a
