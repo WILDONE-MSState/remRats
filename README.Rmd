@@ -33,6 +33,8 @@ USDA ARS grant number: 58-6064-3-017
 
 Project title: Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease
 
+Supported by  USDA - Forest Service International Programs, Agreement 22-DG-11132762-347
+
 ## Overview
 
 remRats offers a simple but effective platform to estimate the size of a population subject to removal experiments (either temporal or permanent removal).
