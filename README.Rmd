@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ## Author/s
 
-- Dr. Fernando Arce, Mississippi State University. (Author, Developer, Mantainer)
+- Dr. Fer Arce, Mississippi State University. (Author, Developer, Mantainer)
 - Dr. Manuel Ruiz-Aravena, Mississippi State University. (Contributor)
 - Dr. Michael W. Sandel, Mississippi State University. (Contributor)
 
