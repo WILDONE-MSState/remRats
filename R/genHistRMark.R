@@ -18,7 +18,9 @@
 ##' myHist <- genHistRMark(c(200, 150, 125), 3)
 ##' @export
 ##' @author Fer Arce
-genHistRMark <- function(pop,events, msg = TRUE){
+genHistRMark <- function(pop,events = NULL, msg = TRUE){
+    if(is.null(events))
+        events = length(pop)
     indi <- sum(pop)
     ali <- matrix(, nrow = indi, ncol = events)
     ba <- cumsum(pop)
@@ -27,7 +29,9 @@ genHistRMark <- function(pop,events, msg = TRUE){
         if (i == 1){
             ali[1:ba[i], i] <- 1
         } else {
-            ali[(ba[i-1]+1):ba[i], i] <- 1
+            if (pop[i] != 0){
+                ali[(ba[i-1]+1):ba[i], i] <- 1
+            }
         }
         i = i +1
     }
@@ -38,7 +42,6 @@ genHistRMark <- function(pop,events, msg = TRUE){
     class(sim) <- 'HistRMarkLong'
     if (msg)
         cat('\nA total of', nrow(sim[[1]]), 'individuals have been processed.\n\n')
-    
     return(sim)
 }
 
