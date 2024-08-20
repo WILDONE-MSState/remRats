@@ -6,3 +6,4 @@ closed.R
 ^test/
 ^progress/
 man/figures/
+graphics.R
