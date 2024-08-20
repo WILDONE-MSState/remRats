@@ -17,13 +17,16 @@
 ##' \item se: standard error of the estimate
 ##' \item lcl: lower 95% confidence interval value
 ##' \item ucl: upper 95% confidence interval value
+##' \item n.occ: number of removing events
+##' \item NCatch: Cumulative number of individuals removed
+##' \item propCatch: proportion of the population already removed (againts every iteration of the Estimated N  hat)
 ##' }
 ##' }
 ##' @export
 ##' @examples
 ##' exPop <- recRemMLE(genHistRMark(c(200, 150, 125), 3),3)
 ##' @author Fer Arce
-recRemMLE <- function(Data, events, recursive = TRUE){
+recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
     stopifnot(class(Data) == "HistRMarkLong")
     if (events > length(Data[[2]])){
         ev <- events
@@ -42,8 +45,12 @@ recRemMLE <- function(Data, events, recursive = TRUE){
         out[i] <- tmpPop$result
     }
     res <- do.call(rbind, out)
+    res$NCatch <- cumsum(Data$captures)[-1]
+    res$propCatch <- round(res$NCatch/ res$estimate,2)
+    ## if (is.numeric(goal))
+    ##     res$goal <- ifelse(res$propCatch < goal, FALSE, TRUE)
     if (any(res$se == 0))
-        warning('\nSome of the fitted values are singular and must be ignored.\nYou can identify them by looking to the reported standard errors.\n')
+        warning('\nSome of the fitted values are singular and should be ignored.\nThey can be identified by looking at the reported standard errors.\n')
     out <- list(data = Data, Nest = res)
     class(out) <- 'fittedRemMLERec'
     return(out)

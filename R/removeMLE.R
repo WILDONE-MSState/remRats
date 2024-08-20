@@ -1,3 +1,8 @@
+## add model = TRUE and sink the model data to a specific folder.
+
+
+
+
 ##' Function to fit a closed population CMR model 
 ##'
 ##'This function fit a closed capture-mark-recapture model with extreme behavioural response (complete trap-shyness). The rationale of this approach is that an extreme trap-shyness behavior will result in capture histories consisting on only one capture per individual and thus becoming a removal experiment (either released or removed, animals won't occupy the traps again -at least during the survery term). This approach is suggested in Otis et al. (1978) and has been extensively tested via simulations.
@@ -43,6 +48,70 @@ removeMLE <- function(Data){
 
 
 
+## we keepinmg the model somehow
+removeMLEOriginal <- function(Data){
+    stopifnot(class(Data) == "HistRMarkLong")
+    c.1 = list(formula=~1, fixed = 0)
+    if(.Platform$OS.type == 'windows'){
+        File <- 'nul'
+    } else {
+        File <- '/dev/null'
+    }
+    sink(file = File)
+    data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
+    model<-RMark::mark(data.mark,model="Closed",
+                     model.parameters=list(c=c.1),
+                     delete=FALSE, hessian = TRUE, silent = TRUE)
+    sink()
+    N <- model$results$derived
+    output <- list(Data = Data, result = N, model = model)
+    class(output) <- 'fittedRemMLE'
+    return(output)
+}
+
+
+removeMLETime <- function(Data){
+    stopifnot(class(Data) == "HistRMarkLong")
+    c.1 = list(formula=~1, fixed = 0)
+    p.T = list(formula=~Time)
+    ## if(.Platform$OS.type == 'windows'){
+    ##     File <- 'nul'
+    ## } else {
+    ##     File <- '/dev/null'
+    ## }
+    sink(file = File)
+    data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
+    ren<-RMark::mark(data.mark,model="Closed",
+                     model.parameters=list(c=c.1, p = p.T),
+                     delete=FALSE, hessian = TRUE, silent = TRUE)
+    sink()
+    N <- ren$results$derived
+    output <- list(Data = Data, result = N, model = ren)
+    class(output) <- 'fittedRemMLE'
+    return(output)
+}
+
+
+removeMLEtime <- function(Data){
+    stopifnot(class(Data) == "HistRMarkLong")
+    c.1 = list(formula=~1, fixed = 0)
+    p.t = list(formula=~time)
+    if(.Platform$OS.type == 'windows'){
+        File <- 'nul'
+    } else {
+        File <- '/dev/null'
+    }
+    sink(file = File)
+    data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
+    ren<-RMark::mark(data.mark,model="Closed",
+                     model.parameters=list(c=c.1, p = p.t),
+                     delete=FALSE, hessian = TRUE, silent = TRUE)
+    sink()
+    N <- ren$results$derived
+    output <- list(Data = Data, result = N, model = ren)
+    class(output) <- 'fittedRemMLE'
+    return(output)
+}
 
 
 
@@ -63,7 +132,7 @@ removeMLE <- function(Data){
 ##' @author Fer Arce
 ##' @method print fittedRemMLE
 ##' @export
-##' @examples
+  ##' @examples
 ##' print(removeMLE(genHistRMark(c(100,80,60),3)))
 print.fittedRemMLE <- function(x, ...){
     cat('\nPopulation size at the start of the\nremoval experiment:\n\n')

@@ -19,6 +19,7 @@
 ##' @export
 ##' @author Fer Arce
 genHistRMark <- function(pop,events = NULL, msg = TRUE){
+    pop <- as.numeric(pop)
     if(is.null(events))
         events = length(pop)
     indi <- sum(pop)
