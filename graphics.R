@@ -1,3 +1,5 @@
+oad all funs as if it were a package
+
 source('R/remSim.R')
 source('R/genHistRMark.R')
 source('R/removeMLE.R')
@@ -11,12 +13,11 @@ N = 500
 p = .1
 j = 15
 
-##vect <- seq(0.1, .95, .01)
-
 ##
 
 ## quizas tenga que hacer con 4 decimales?
-p.vect <- round(runif(5000, .1,.95), 3)
+##I, tengo que repetir lsa simulacion con mas decimales para lograr mejor aspecto visual de los plots
+p.vect <- round(runif(5000, .1,.9), 3)
 
 
 ## anyadir el numero de simulacion para luego combinarlos.
@@ -44,7 +45,11 @@ u <- do.call(rbind, rec1)
 
 saveRDS(list(rec1,outs1,u, p.vect), 'randomP5000.RDS')
 
-rec <- readRDS('randomP1000.RDS')
+
+
+
+
+rec <- readRDS('randomP5000.RDS')
 
 ev <- rec[[2]]
 ev <- do.call(cbind, ev)
