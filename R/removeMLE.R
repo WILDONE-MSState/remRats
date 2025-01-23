@@ -79,11 +79,9 @@ removeMLETime <- function(Data){
     ## } else {
     ##     File <- '/dev/null'
     ## }
-    sink(file = File)
+    ## sink(file = File)
     data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
-    ren<-RMark::mark(data.mark,model="Closed",
-                     model.parameters=list(c=c.1, p = p.T),
-                     delete=FALSE, hessian = TRUE, silent = TRUE)
+    ren<-mark(data = data.mark,model="Closed", model.parameters=list(c=c.1, p = p.T), delete=FALSE, hessian = TRUE, silent = TRUE)
     sink()
     N <- ren$results$derived
     output <- list(Data = Data, result = N, model = ren)
