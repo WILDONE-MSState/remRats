@@ -8,3 +8,4 @@ closed.R
 man/figures/
 graphics.R
 ^~
+^#
