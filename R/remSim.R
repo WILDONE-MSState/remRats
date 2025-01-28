@@ -1,17 +1,19 @@
-##' Function to simulate removal datasets
+##' Function for simulation of removal datasets
 ##'
-##' Simple simulation of removal experiments under basic constraints, following a binomial secuence of removals, with the posibility of adding a cap up to simulate experiments where trap saturation occur. To prevent this behavior to occur, max.capt should be fixed to a ridiculously unrealistic large value. This function does not allow to simulate populations  with time or individual-level varying parameters. It is defined and mantained for the purpose of simple checking and large simulations.
+##' Simulation of removal experiments under basic constraints, following a binomial secuence of removals. It allow to set an upper limit in the number of individuals trapping per event to simulate experiments where trap saturation occur (Limited number of single-catch trap and). This function does not allow to simulate populations  with time or individual-level varying parameters. It is defined and mantained for the purpose of simple checking and large simulations.
 ##' @title simple removal simulation
 ##' @param N Initial population size
-##' @param p capturability (probabilidad of copture, equal for each individual, in the interval (0,1))
+##' @param p capturability (Capture probability (equal) for each individual, in the interval (0,1))
 ##' @param j number of removal events
-##' @param max.capt maximum number of individuals potentially removed per event (i.e number of single catch traps)
-##' @return a vector of total number of captures per removal event
+##' @param max.capt maximum number of individuals potentially removed per event (i.e number of single catch traps in mammal trapping projects). It is set by default to the initial population size subject to extraction
+##' @return a vector containing the sequence of the number of captures per removal event
 ##' @examples
 ##' simEx <- remSim(100, 0.5, 4, 50)
 ##' @author Fer Arce
 ##' @export
-remSim<-function(N,p,j, max.capt){
+remSim<-function(N,p,j, max.capt = N){
+    ## if (!is.finite(max.capt))
+    ##     max.capt <- N
     Capt<-numeric(j)
     for (i in 1:j){
         trial <- sum(rbinom(N-sum(Capt),1,prob=p))
