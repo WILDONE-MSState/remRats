@@ -72,7 +72,7 @@ recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
 ##' }
 ##' @author Fer Arce
 ##' @method print fittedRemMLERec
-##' @export
+##' @noRd
 ##' @examples
 ##' print(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
 print.fittedRemMLERec <- function(x, ...){
@@ -100,7 +100,7 @@ print.fittedRemMLERec <- function(x, ...){
 ##' \item ucl: 95\% upper confidence interval
 ##' }
 ##' @author Fer Arce
-##' @export
+##' @noRd
 ##' @examples
 ##' recEst <- as.data.frame(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
 as.data.frame.fittedRemMLERec <- function(x, row.names, optional, ...){
