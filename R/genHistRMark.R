@@ -3,7 +3,7 @@
 ##' This function takes the results of a removal experiment in its simples expression (pooled total of individuals per nigth or removal event/pass) and format it to be used by \code{RMark} package. RMark (and therefore MARK) accepts a few different types of data formats. I have chosen the long format because it will be consistent with the rest of modelling approaches offered in the package
 ##' @title Fotrmatting removal data for RMark
 ##' @param pop Numerical vector containing a sequence of numbers representiong the total number of animals extracted per night
-##' @param events Numeric. Number of removal events considering for futher analysis (equal or smaller than the number of trappiong events)
+##' @param events Numeric. Number of removal events considering for futher analysis (equal or smaller than the number of trapping events)
 ##' @param msg \code{logical}. IF TRUE a short message containing the total number of individuals removed for the number of events considered is printed in the console.
 ##' @return an object of class \code{HistRMarkLong} consisting on a list of the following objects: \cr
 ##' \itemize{
@@ -60,7 +60,7 @@ genHistRMark <- function(pop,events = NULL, msg = TRUE){
 ##' print(genHistRMark(c(200, 150, 125), 3))
 ##' @method print HistRMarkLong
 ##' @author Fer Arce
-##' @export
+##' @noRd
 print.HistRMarkLong <- function(x, ...){
     ##return(x[[1]])
     cat('\nA total of', sum(x[[2]]), 'unique individuals removed \nduring',
@@ -90,7 +90,7 @@ print.HistRMarkLong <- function(x, ...){
 ##' @examples
 ##' myCaptHist <- as.data.frame(genHistRMark(c(200, 150, 125), 3))
 ##' @author Fer Arce
-##' @export
+##' @noRd
 as.data.frame.HistRMarkLong <- function(x, row.names, optional, ...){
     return(x[[1]])
 }
