@@ -47,11 +47,12 @@ recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
     res <- do.call(rbind, out)
     ##res <- as,data.frame(res)
     res <- res[, c(5,1:4)]
-    raw <- data.frame(n.occ = c(1,res$n.occ), Neach =Data[[2]], Ncum = cumsum(Data[[2]]))
-    props <- data.frame(n.occ = res$n.occ, NCatch = cumsum(raw$Neach)[-1])
-    props$estimate <- round(props$NCatch/ res$estimate,2)
-    props$lcl <- round(props$NCatch/ res$ucl,2)
-    props$ucl <- round(props$NCatch/ res$lcl,2)
+    colnames(res) <- c('n.occ','Nestimate','Nse','Nlcl','Nucl')
+    raw <- data.frame(n.occ = c(1,res$n.occ), Neach =Data[[2]], Ncumu = cumsum(Data[[2]]))
+    props <- data.frame(n.occ = res$n.occ, Ncumu = cumsum(raw$Neach)[-1])
+    props$Pestimate <- round(props$Ncumu/ res$Nestimate,2)
+    props$Plcl <- round(props$Ncumu/ res$Nucl,2)
+    props$Pucl <- round(props$Ncumu/ res$Nlcl,2)
     ## if (is.numeric(goal))
     ##     res$goal <- ifelse(res$propCatch < goal, FALSE, TRUE)
     if (any(res$se == 0))
@@ -114,5 +115,6 @@ print.fittedRemMLERec <- function(x, ...){
 ##' @examples
 ##' recEst <- as.data.frame(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
 as.data.frame.fittedRemMLERec <- function(x, row.names, optional, ...){
-    return(x[[2]][[1]])
+    frame <- merge(merge(x[[3]], x[[2]], all = TRUE), x[[4]], all = TRUE)
+    return(frame)
 }
