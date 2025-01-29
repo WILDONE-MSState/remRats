@@ -45,13 +45,18 @@ recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
         out[i] <- tmpPop$result
     }
     res <- do.call(rbind, out)
-    res$NCatch <- cumsum(Data$captures)[-1]
-    res$propCatch <- round(res$NCatch/ res$estimate,2)
+    ##res <- as,data.frame(res)
+    res <- res[, c(5,1:4)]
+    raw <- data.frame(n.occ = c(1,res$n.occ), Neach =Data[[2]], Ncum = cumsum(Data[[2]]))
+    props <- data.frame(n.occ = res$n.occ, NCatch = cumsum(raw$Neach)[-1])
+    props$estimate <- round(props$NCatch/ res$estimate,2)
+    props$lcl <- round(props$NCatch/ res$ucl,2)
+    props$ucl <- round(props$NCatch/ res$lcl,2)
     ## if (is.numeric(goal))
     ##     res$goal <- ifelse(res$propCatch < goal, FALSE, TRUE)
     if (any(res$se == 0))
         warning('\nSome of the fitted values are singular and should be ignored.\nThey can be identified by looking at the reported standard errors.\n')
-    out <- list(data = Data, Nest = res)
+    out <- list(data = Data, Nest = res, Nraw = raw, Nprops = props)
     class(out) <- 'fittedRemMLERec'
     return(out)
 }
@@ -76,9 +81,14 @@ recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
 ##' @examples
 ##' print(recRemMLE(genHistRMark(c(200, 150, 125), 3),3))
 print.fittedRemMLERec <- function(x, ...){
-    cat('\nEvolution of the Population size estimate\nat the start of the removal experiment as the number of remoival events increases:\n\n')
-    print(round(x[[2]], 2))
-    cat('\n')
+    cat('\nEvolution of the Removal experiment Population\nsize estimate at the start of the removal\nexperiment as the number of removal events\nincreases:\n\n')
+    cat('Raw numbers:\n\n')
+    print(x[[3]], row.names = FALSE)
+    cat('\n\nPopulation estimate:\n\n')
+    print(round(x[[2]], 2), row.names = FALSE)
+    cat('\n\nProportion of the population sampled (%)\n\n')
+    print(round(x[[4]], 2), row.names = FALSE)
+    cat('\n\n')
 }
 
 ##' Convert objects of class fittedRemMLERec to a data.frame
