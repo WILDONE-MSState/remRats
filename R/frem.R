@@ -13,8 +13,8 @@
 #' @source <https://www.who.int/teams/global-tuberculosis-programme/data>
 
 
-add:
+## add:
 
-c(5,7,8) mottled sculpin from Carle and Strub, 1978
-c(25,26,15,13,12,13,5) whitefish from Otis et al
-c(181,11,4,5,3) mayflies from Otis et al
+## c(5,7,8) mottled sculpin from Carle and Strub, 1978
+## c(25,26,15,13,12,13,5) whitefish from Otis et al
+## c(181,11,4,5,3) mayflies from Otis et al
