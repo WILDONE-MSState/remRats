@@ -5,7 +5,7 @@ README.md
 closed.R
 ^test/
 ^progress/
-man/figures/
+/man/figures/
 graphics.R
 ^~
 ^#
