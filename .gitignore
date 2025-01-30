@@ -9,6 +9,7 @@ progress/
 TODO.org
 .png
 *.html
+*.tex
 
 # custom files
 test.R
