@@ -76,6 +76,17 @@ In adition, you need to have locally installed in your computer programs
 Sampler (JAGS)](https://mcmc-jags.sourceforge.io/) to operate with some
 of the functiones ofered in {remRats}.
 
+Simplest usage
+
+```r
+## package testing
+(pob1<-remSim(N=500,p=.15,j=5))
+(simudata<-genHistRMark(pob1))
+(pop.res1<-removeMLE(simudata))
+(popEst<-recRemMLE(simudata, events = 5))
+(projC <- projCatches(popEst, proj = 3))
+```
+
 ## Problems and bugs
 
 If you have encountered a bug or have found an inconsistent/unexpected
