@@ -53,8 +53,7 @@ requirements of the project).
 
 ## Installation:
 
-You should have an R version at least 4.0.0 installed (It should work
-with any version \>= 3.4.0, but the newest the better). You can check
+You need to have an R version of 3.5.0 or newer. You can check
 which R version you have installed in your machine by typing:
 
 ``` r
