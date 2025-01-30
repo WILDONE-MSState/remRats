@@ -20,7 +20,5 @@ fitCatches <- function(Data, k = 5) {
     if (k >= (length(capts) - 1))
         k = length(capts) - 1
     model <- gam(capts~s(n, k = k), bs = 'cr', method = 'REML')
-    ## model <- gam(capts~s(n),bs = 'cr', k = k)
-    ## class(model) <- 'fitC'
     return(model)
 }
