@@ -1,15 +1,16 @@
-## function for projecticng the gam from above
-##' .. content for \description{} (no empty lines) ..
+
+##' Function to fit and project a gam curve.
 ##'
 ##' .. content for \details{} ..
 ##' @title 
-##' @param Data 
-##' @param proj 
-##' @param ... 
+##' @param Data an object of class 'fittedRemMLERec'.
+##' @param proj numbers of future days to be projected 
+##' @param ... further arguments to be imposed to fitCatches
 ##' @return 
 ##' @author Fer Arce
-projCatches <- function(Data, proj, ...){
+##' @export
+projCatches <- function(Data, proj, ...) {
     model <- fitCatches(Data, ...)
-    test <- data.frame(n = 1:(length(Data) + proj))
+    test <- data.frame(n = 1:(nrow(Data$Nraw) + proj))
     pred <- predict(model, test,type = 'response', se = TRUE)
-}
+}   
