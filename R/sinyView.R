@@ -7,8 +7,8 @@
 ##' @author Fer Arce
 shinyView <- function(popEst){
 # Define UI
-ui <- fluidPage(
-    titlePanel("summary of Removal Trapping Experiment"),
+ui <- shiny::fluidPage(
+    shiny::titlePanel("summary of Removal Trapping Experiment"),
     tags$div(
              style = 'max-width: 800px; margin: auto;',
              tabsetPanel(
