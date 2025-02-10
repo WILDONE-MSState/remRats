@@ -11,7 +11,7 @@ ui <- shiny::fluidPage(
     shiny::titlePanel("summary of Removal Trapping Experiment"),
     shiny::tags$div(
              style = 'max-width: 800px; margin: auto;',
-             tabsetPanel(
+             shiny::tabsetPanel(
                  tabPanel("Raw data", DT::dataTableOutput("table1")),
                  tabPanel("Population estimate", DT::dataTableOutput("table2")),
                  tabPanel("% of population trapped", DT::dataTableOutput("table3"))
