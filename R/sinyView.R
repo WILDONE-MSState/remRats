@@ -1,21 +1,24 @@
 ##' Function to visualice the outcome of a remRats analysis
 ##'
-##' This function open a shiny app where the different output tables are shown
+##' This function open a shiny app where the different output tables recursively generated are shown.
 ##' @title shinyView
 ##' @param popEst 
-##' @return open a shiny app in a web browser
+##' @return open a shiny app in a web browser with the data analysis
 ##' @author Fer Arce
 ##' @export
 shinyView <- function(popEst){
                                         # Define UI
-    ui <- shiny::fluidPage(
-                     shiny::titlePanel("summary of Removal Trapping Experiment"),
-                     shiny::tags$div(
+    ui <- fluidPage(
+                     titlePanel("summary of Removal Trapping Experiment"),
+                     tags$div(
                                      style = 'max-width: 800px; margin: auto;',
-                                     shiny::tabsetPanel(
-                                                shiny::tabPanel("Raw data", DT::dataTableOutput("table1")),
-                                                shiny::tabPanel("Population estimate", DT::dataTableOutput("table2")),
-                                                shiny::tabPanel("% of population trapped", DT::dataTableOutput("table3"))
+                                     tabsetPanel(
+                                                tabPanel("Raw data",
+                                                                DT::dataTableOutput("table1")),
+                                                tabPanel("Population estimate",
+                                                                DT::dataTableOutput("table2")),
+                                                tabPanel("% of population trapped",
+                                                                DT::dataTableOutput("table3"))
                                             )
                                  )
                  )
@@ -35,8 +38,6 @@ shinyView <- function(popEst){
     }
     
     
-    shiny::shinyApp(ui = ui, server = server)
+    shinyApp(ui = ui, server = server)
 }
 
-
-##shinyView(popEst)
