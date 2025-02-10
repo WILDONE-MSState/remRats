@@ -90,10 +90,10 @@ removeMLETime <- function(Data){
 }
 
 
-removeMLEtime <- function(Data){
+removeMLEeff <- function(Data){
     stopifnot(class(Data) == "HistRMarkLong")
     c.1 = list(formula=~1, fixed = 0)
-    p.t = list(formula=~time)
+    p.t = list(formula=~cov)
     if(.Platform$OS.type == 'windows'){
         File <- 'nul'
     } else {
