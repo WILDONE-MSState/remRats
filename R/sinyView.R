@@ -9,7 +9,7 @@ shinyView <- function(popEst){
 # Define UI
 ui <- shiny::fluidPage(
     shiny::titlePanel("summary of Removal Trapping Experiment"),
-    tags$div(
+    shiny::tags$div(
              style = 'max-width: 800px; margin: auto;',
              tabsetPanel(
                  tabPanel("Raw data", DT::dataTableOutput("table1")),
