@@ -1,9 +1,9 @@
 ##' Wrapper function to make a full process of removal data using a single function call
 ##'
-##' This is a wrapping function to facilitaste the visualization of the analytical procedures implemented in remRats
+##' This is a wrapping function to facilitate the visualization of the analytical procedures implemented in remRats
 ##' @title remRats
 ##' @param pob1 a numeric vector contianing the number of individuals removed during a remioval experiment at each event. 
-##' @return 
+##' @return a list from recRemMLE
 ##' @author Fer Arce
 ##' @export
 remRats <- function(pob1){
