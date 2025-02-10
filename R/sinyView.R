@@ -21,20 +21,20 @@ ui <- shiny::fluidPage(
 
 
 
-server <- function(input, output, session) {
-  output$table1 <- DT::renderDataTable({
-    popEst$Nraw
-  })  
-  output$table2 <- DT::renderDataTable({
-    popEst$Nest
-  })
-  output$table3 <- DT::renderDataTable({
-    popEst$Nprops
-  })
+    server <- function(input, output, session) {
+        output$table1 <- DT::renderDataTable({
+            popEst$Nraw
+        })  
+        output$table2 <- DT::renderDataTable({
+            popEst$Nest
+        })
+        output$table3 <- DT::renderDataTable({
+            popEst$Nprops
+        })
+    }
+    
+    
+    shiny::shinyApp(ui = ui, server = server)
 }
 
-
-shiny::shinyApp(ui = ui, server = server)
-}
-
-shinyView(popEst)
+##shinyView(popEst)
