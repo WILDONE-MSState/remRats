@@ -1,12 +1,12 @@
-3## ## need to incorp[orate goal
+3## ## need to incorp[orate goal, and it also need to project itself to the future to see when the goal will be met.
 ##' .. content for \description{} (no empty lines) ..
 ##'
 ##' .. content for \details{} ..
 ##' @title 
-##' @param Data an object of class fittedRemMLERec
+##' @param Data an object of class fittedRemMLERec. If not, it has to be called.
 ##' @param fixed Number of originally fixed trapping days
-##' @param goal proportion of the population to be collected
-##' @return 
+##' @param goal proportion of the population aimed to be collected
+##' @return a data frame
 ##' @author Fer Arce
 evalPerf <- function(Data, fixed = 5, goal = .9){
     ## via remRats

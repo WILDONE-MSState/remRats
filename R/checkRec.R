@@ -1,6 +1,6 @@
-##' .. content for \description{} (no empty lines) ..
+##' Function for making Y axis reasonable for ploting
 ##'
-##' sanity check of results
+##' sanity check of results for making reasonable plots
 ##' @title result checking
 ##' @param rec 
 ##' @return 
