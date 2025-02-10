@@ -90,17 +90,17 @@ removeMLETime <- function(Data){
 }
 
 
-removeMLEeff <- function(Data){
+removeMLEeff <- function(Data, eff){
     stopifnot(class(Data) == "HistRMarkLong")
     c.1 = list(formula=~1, fixed = 0)
-    p.t = list(formula=~cov)
+    p.t = list(formula=~eff)
     if(.Platform$OS.type == 'windows'){
         File <- 'nul'
     } else {
         File <- '/dev/null'
     }
     sink(file = File)
-    data.mark <- data.frame(ch = Data[[1]]$ch, ind = 1)
+    data.mark <- data.frame(ch = Data[[1]]$ch, ind = ind, eff = eff)
     ren<-RMark::mark(data.mark,model="Closed",
                      model.parameters=list(c=c.1, p = p.t),
                      delete=FALSE, hessian = TRUE, silent = TRUE)
