@@ -12,9 +12,9 @@ ui <- shiny::fluidPage(
     shiny::tags$div(
              style = 'max-width: 800px; margin: auto;',
              shiny::tabsetPanel(
-                 tabPanel("Raw data", DT::dataTableOutput("table1")),
-                 tabPanel("Population estimate", DT::dataTableOutput("table2")),
-                 tabPanel("% of population trapped", DT::dataTableOutput("table3"))
+                 shiny::tabPanel("Raw data", DT::dataTableOutput("table1")),
+                 shiny::tabPanel("Population estimate", DT::dataTableOutput("table2")),
+                 shiny::tabPanel("% of population trapped", DT::dataTableOutput("table3"))
              )
          )
 )
