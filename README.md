@@ -78,12 +78,13 @@ of the functiones ofered in {remRats}.
 Simplest usage
 
 ```r
-## package testing
-(pob1<-remSim(N=500,p=.15,j=5))
-(simudata<-genHistRMark(pob1))
-(pop.res1<-removeMLE(simudata))
-(popEst<-recRemMLE(simudata, events = 5))
-(projC <- projCatches(popEst, proj = 3))
+## minimal package example
+library(remRats)
+library(ggplot2)
+
+rem <- remSim(N=500,p=.35,j=5)
+popEst <- remRats(rem)
+shinyView(popEst)
 ```
 
 ## Problems and bugs
