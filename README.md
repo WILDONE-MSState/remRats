@@ -15,13 +15,12 @@ CRAN badge](man/figures/badge-cran.svg)
 
 ## Funding
 
-USDA ARS grant number: 58-6064-3-017
+Funding was provided by the U.S. Department of Agriculture, Agricultural Research Service, grant number: 58-6064-3-017
 
 Project title: Developing Detection and Modeling Tools for the
 Geospatial and Environmental Epidemiology of Animal Disease
 
-Supported by USDA - Forest Service International Programs, Agreement
-22-DG-11132762-347
+Additional support was provided by USDA - Forest Service International Programs, Agreement 22-DG-11132762-347
 
 ## Overview
 
