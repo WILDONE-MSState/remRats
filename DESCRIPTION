@@ -5,7 +5,7 @@ Title: Efficient Estimation of Small Mammal Population Size Under
 Version: 0.1.0
 Authors@R: c(person("Fernando", "Arce", email = "farcego@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7622-3791")),
              person("Manuel", "Ruiz Aravena", email = "mir41@msstate.edu", role = "ctb"),
-	     person("Michael", "Sandel", email = "mws297@msstate.edu", role = "ctb"))
+	     person("Michael W.", "Sandel", email = "mws297@msstate.edu", role = "ctb"))
 Description: Package remRats contains a collection of functions in-purposed
     design to estimate population size of wild organisms subject to removal
     experiments.
