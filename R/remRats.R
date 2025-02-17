@@ -8,7 +8,7 @@
 ##' @export
 remRats <- function(pob1){
     simudata<-genHistRMark(pob1)
-    popEst<-recRemMLE(simudata, events = 5)
+    popEst<-recRemMLE(simudata)
     popEst$Nest[2:5] <- round(popEst$Nest[2:5], 0) 
     return(popEst)
 }
