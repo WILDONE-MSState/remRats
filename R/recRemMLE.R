@@ -26,8 +26,10 @@
 ##' @examples
 ##' exPop <- recRemMLE(genHistRMark(c(200, 150, 125), 3),3)
 ##' @author Fer Arce
-recRemMLE <- function(Data, events, recursive = TRUE){ #, goal = NULL)
+recRemMLE <- function(Data, events = NULL, recursive = TRUE){ #, goal = NULL)
     stopifnot(class(Data) == "HistRMarkLong")
+    if(is.null(events))
+        events <- length(Data[[2]])
     if (events > length(Data[[2]])){
         ev <- events
         events <- length(Data[[2]])
