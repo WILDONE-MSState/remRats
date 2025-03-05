@@ -1,4 +1,5 @@
 importFrom(stats,rbinom)
+importFrom(stats, predict)
 importFrom(utils,head)
 importFrom(mgcv,gam)
 importFrom(RMark, mark)
