@@ -1,6 +1,6 @@
 ##' Function to visualice the outcome of a remRats analysis
 ##'
-##' This function open a shiny app where the different output tables and time series plots generated are shown. This Shiny app is interactive so the end user can decider project or no the model into nearby future to avaluate the expectations of future field effort.
+##' This function open a shiny app where the different output tables and time series plots generated are shown. This Shiny app is interactive so the end user can decider project or no the model into nearby future to avaluate the expectations of future field effort. This function shouldf be called from inside the call of remRats.
 ##' @title shinyView
 ##' @param popEst an object of class 'fittedRemMLERec'.
 ##' @return open a shiny app in a web browser to visualize the data analysis and projections
