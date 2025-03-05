@@ -41,14 +41,21 @@ with respect to the population where they have been collected.
 
 remRats fills some of the mentioned limitations by making analysis of
 removal data as simple and consistent as possible. We also conceived
-remRats as a tool to be used ‘on-the-ground’, that is, during the actual
-removal experiment. During the process of collecting individuals, and
-after each session, remRats can be used to evaluate the performance of
-the removal experiment, assesing the uncertainty of estimates,
-calculating the proportion of the population already being sampled (of
-critical importance for disease surveillance), and projecting the
-observed trends to estimate the extra effort still needed given the
-requirements of the project).
+remRats as a tool to be used ‘on-the-ground’, that is, during the
+actual removal experiment. During the process of collecting
+individuals, and after each session, remRats can be used to evaluate
+the performance of the removal experiment, assesing the uncertainty of
+estimates, calculating the proportion of the population already being
+sampled (of critical importance for disease surveillance), and
+projecting the observed trends to evaluate the extra effort still
+needed given the requirements of the project or the cost-benefit of
+keep running the sampling scheme).
+
+remRats all the several steps mentioned above into a single function
+`remRats` that generates some of the outputs and allow to display them
+in a Shiny app where the suer may define the projection window to see
+the near future perfiormance of the remoival scheme given the current
+state of it.
 
 ## Installation:
 
