@@ -129,7 +129,7 @@ removeMLEeff <- function(Data, eff){
 ##' }
 ##' @author Fer Arce
 ##' @method print fittedRemMLE
-##' @export
+##' @nd
   ##' @examples
 ##' print(removeMLE(genHistRMark(c(100,80,60),3)))
 print.fittedRemMLE <- function(x, ...){
@@ -157,7 +157,7 @@ print.fittedRemMLE <- function(x, ...){
 ##' \item ucl: 95\% upper confidence interval
 ##' }
 ##' @author Fer Arce
-##' @export
+##' @nd
 ##' @examples
 ##' myEstimate <- as.data.frame(removeMLE(genHistRMark(c(100,80,60),3)))
 as.data.frame.fittedRemMLE <- function(x, row.names, optional, ...){
