@@ -9,7 +9,7 @@
 ##' @return 
 ##' @author Fer Arce
 ##' @export
-projCatches <- function(Data, proj, ...) {
+projCatches <- function(Data, proj ...) {
     model <- fitCatches(Data, ...)
     test <- data.frame(n = 1:(nrow(Data$Nraw) + proj))
     pred <- predict(model, test,type = 'response', se = TRUE)

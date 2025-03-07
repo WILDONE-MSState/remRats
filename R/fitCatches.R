@@ -14,8 +14,10 @@
 ##' @return the object of a fitted gam model.
 ##' @author Fer Arce
 ##' @noRd
-fitCatches <- function(Data, k = 5) {
+fitCatches <- function(Data, k = 5, length = NULL) {
     capts <- as.vector(Data$Nraw$Ncumu)
+    if (!is.null(length))
+        capts = capts[1:length]
     n <- 1:length(capts)
     if (k >= (length(capts) - 1))
         k = length(capts) - 1
