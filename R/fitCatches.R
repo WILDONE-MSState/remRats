@@ -11,6 +11,7 @@
 ##' @param Data an object of class fittedRemMLERec
 ##' @param k smoothing parameterfot the gam function - number of knots
 ##'     (It cannot be larger than n-1 occasions)
+##' @param length numbewr of occasions to fit the model 
 ##' @return the object of a fitted gam model.
 ##' @author Fer Arce
 ##' @noRd
