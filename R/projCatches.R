@@ -17,10 +17,8 @@ projCatches <- function(Data, proj = 1, sub = NULL, ...) {
     model <- fitCatches(Data, ...)
     ## algo como if exists
     le <- nrow(Data$Nraw)
-    if (!is.null(sub))
-        le <- sub
-    test <- data.frame(n = 1:(le + proj))
-    pred <- predict(model, test,type = 'response', se = TRUE)
+    test <- data.frame(n = (le+1):(le +proj))
+    pred <- predict(model,test,type = 'response', se = TRUE)
     pred[[1]] <- floor(pred[[1]])
     pred[[2]] <- round(pred[[2]], 1)
     pred <- as.data.frame(pred)
