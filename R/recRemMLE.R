@@ -51,7 +51,7 @@ recRemMLE <- function(Data, events = NULL, recursive = TRUE){ #, goal = NULL)
     ##res <- as,data.frame(res)
     res <- res[, c(5,1:4)]
     colnames(res) <- c('n.occ','Nestimate','Nse','Nlcl','Nucl')
-    raw <- data.frame(n.occ = c(1,res$n.occ), Neach =Data[[2]], Ncumu = cumsum(Data[[2]]))
+    raw <- data.frame(n.occ = c(1,res$n.occ), Neach =pob1, Ncumu = cumsum(pob1[[2]]))
     props <- data.frame(n.occ = res$n.occ, Ncumu = cumsum(raw$Neach)[-1])
     props$Pestimate <- round(props$Ncumu/ res$Nestimate,2)
     props$Plcl <- round(props$Ncumu/ res$Nucl,2)
