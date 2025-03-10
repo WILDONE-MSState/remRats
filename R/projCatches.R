@@ -25,5 +25,5 @@ projCatches <- function(Data, proj = 1, sub = NULL, ...) {
     pred$lcl <- round(pred$fit - 1.96*pred$se.fit, 1)
     pred$ucl <- round(pred$fit + 1.96*pred$se.fit, 1)
     pred$n.occ <- 1:nrow(pred))
-    return(pred)
+return(pred)
 }
