@@ -1,15 +1,18 @@
 
 ##' Function to fit and project a gam curve to the cumulative number of individuals removed.
 ##'
-##' This function fits a gam model to the provided number of cumulative captures, and then project the model fit to near future trapping events
-##' @title 
+##' This function fits a gam model to the provided number of
+##' cumulative captures, and then project the model fit to near future
+##' trapping events
+##' @title
 ##' @param Data an object of class 'fittedRemMLERec'.
-##' @param proj numbers of future days to be projected. 
-##' @param ... further arguments to be imposed to fitCatches (like smoothing parameter - number of knots for the gam)
-##' @return 
+##' @param proj numbers of future days to be projected.
+##' @param ... further arguments to be imposed to fitCatches (like
+##'     smoothing parameter or subset od data to fit the gam)
+##' @return
 ##' @author Fer Arce
 ##' @export
-projCatches <- function(Data,...) {
+projCatches <- function(Data, proj = 1, ...) {
     model <- fitCatches(Data, ...)
     test <- data.frame(n = 1:(nrow(Data$Nraw) + proj))
     pred <- predict(model, test,type = 'response', se = TRUE)
