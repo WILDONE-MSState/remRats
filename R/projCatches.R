@@ -13,7 +13,7 @@
 ##' @return
 ##' @author Fer Arce
 ##' @export
-projCatches <- function(Data, proj = 1, sub = NULL ...) {
+projCatches <- function(Data, proj = 1, sub = NULL, ...) {
     model <- fitCatches(Data, ...)
     ## algo como if exists
     le <- nrow(Data$Nraw)
