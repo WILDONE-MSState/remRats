@@ -22,7 +22,7 @@
 ##' \item ucl: upper 95% confidence interval value
 ##' }
 ##' }
-##' @export
+##' @noRd
 ##' @examples
 ##' exPop <- removeMLE(genHistRMark(c(100,80,60),3))
 ##' @author Fer Arce
