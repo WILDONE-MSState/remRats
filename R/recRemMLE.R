@@ -30,12 +30,13 @@ recRemMLE <- function(Data, events = NULL, recursive = TRUE){ #, goal = NULL)
     stopifnot(class(Data) == "HistRMarkLong")
     if(is.null(events))
         events <- length(Data[[2]])
+    
     if (events > length(Data[[2]])){
         ev <- events
         events <- length(Data[[2]])
         warning('\nNumber of requested events (',ev,') is too large for the data\nsupplied. It has been adjusted to its maximum possible \nvalue (',events,').\n\n')
     }
-    pob1 <- Data[[2]]
+    pob1 <- Data[[2]][1:events]
     out <- vector('list', events)
     for (i in 2:events){
         tmpSim <- genHistRMark(pob1, i, msg = FALSE)
