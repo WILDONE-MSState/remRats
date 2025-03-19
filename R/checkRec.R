@@ -2,9 +2,10 @@
 ##'
 ##' sanity check of results for making reasonable plots
 ##' @title result checking
-##' @param rec 
-##' @return 
+##' @param rec results from a recursive analysis 
+##' @return should returbn an opbject with the information about abnormal confidence intervals
 ##' @author Fer Arce
+##' @noRd
 checkRec <- function(rec){
     ## find weeird stuff
     ## 1 need to find - flag singular values
