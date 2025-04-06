@@ -11,10 +11,10 @@
 ##' @param N Initial (closed) population size
 ##' @param p capturability (Capture probability (equal) for each individual, in the interval (0,1))
 ##' @param j number of removal events
-##' @param max.capt maximum number of individuals potentially removed per event (i.e number of single catch traps in mammal trapping projects). It is set by default to the initial population size subject to extraction
+##' @param max.capt maximum number of individuals potentially removed per event (i.e number of single catch traps in mammal trapping projects). It is set by default to the initial population size subject to extraction (no trap saturation)
 ##' @return a vector containing the sequence of the number of captures per removal event
 ##' @examples
-##' simEx <- remSim(100, 0.5, 4, 50)
+##' simEx <- remSim(200, 0.3, 4, 100)
 ##' @author Fer Arce
 ##' @export
 remSim<-function(N,p,j, max.capt = N){

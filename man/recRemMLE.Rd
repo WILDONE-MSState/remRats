@@ -4,7 +4,7 @@
 \alias{recRemMLE}
 \title{estimation of population size of removal experiments using MLE over an extreme Mtbh model.}
 \usage{
-recRemMLE(Data, events, recursive = TRUE)
+recRemMLE(Data, events = NULL, recursive = TRUE)
 }
 \arguments{
 \item{Data}{an object of class \code{HistRMarkLong}}
@@ -23,6 +23,9 @@ an object of class \code{fittedRemMLERec} containing a list of two elements: \cr
 \item se: standard error of the estimate
 \item lcl: lower 95% confidence interval value
 \item ucl: upper 95% confidence interval value
+\item n.occ: number of removing events
+\item NCatch: Cumulative number of individuals removed
+\item propCatch: proportion of the population already removed (againts every iteration of the Estimated N  hat)
 }
 }
 }

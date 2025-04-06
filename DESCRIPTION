@@ -15,7 +15,7 @@ License: GPL-3
 URL: https://github.com/WILDONE-MSState/remRats
 BugReports: https://github.com/WILDONE-MSState/remRats/issues
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Suggests: knitr
 VignetteBuilder: knitr
 NeedsCompilation: no

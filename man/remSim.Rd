@@ -2,30 +2,36 @@
 % Please edit documentation in R/remSim.R
 \name{remSim}
 \alias{remSim}
-\title{simple removal simulation}
+\title{Simple removal simulation}
 \usage{
-remSim(N, p, j, max.capt)
+remSim(N, p, j, max.capt = N)
 }
 \arguments{
-\item{N}{Initial population size}
+\item{N}{Initial (closed) population size}
 
-\item{p}{capturability (probabilidad of copture, equal for each individual, in the interval (0,1))}
+\item{p}{capturability (Capture probability (equal) for each individual, in the interval (0,1))}
 
 \item{j}{number of removal events}
 
-\item{max.capt}{maximum number of individuals potentially removed per event (i.e number of single catch traps)}
+\item{max.capt}{maximum number of individuals potentially removed per event (i.e number of single catch traps in mammal trapping projects). It is set by default to the initial population size subject to extraction (no trap saturation)}
 }
 \value{
-a vector of total number of captures per removal event
+a vector containing the sequence of the number of captures per removal event
 }
 \description{
-Function to simulate removal datasets
+Function for simulation of removal processes of closed populations
 }
 \details{
-Simple simulation of removal experiments under basic constraints, following a binomial secuence of removals, with the posibility of adding a cap up to simulate experiments where trap saturation occur. To prevent this behavior to occur, max.capt should be fixed to a ridiculously unrealistic large value. This function does not allow to simulate populations  with time or individual-level varying parameters. It is defined and mantained for the purpose of simple checking and large simulations.
+Simulation of removal experiments under basic constraints, following a binomial secuence of removals. It allow to set an upper limit in the number of individuals trapping per event to simulate experiments where trap saturation occur (Limited number of single-catch trap and elevated density of highly catchable targets.
+The function simulates removal sampling data over \eqn{j} occasions.
+On each occasion \eqn{i}, the number of individuals captured is modeled as:
+\deqn{C_i \sim \text{Binomial}(N - \sum_{k=1}^{i-1} C_k,\ p_i)}
+where \eqn{N} is the initial population size, and \eqn{p_i} is the detection probability 
+at occasion \eqn{i}. If \eqn{p} is given as a scalar, it is assumed constant across all \eqn{j} occasions.
+The argument \code{max.capt} can be used to set a maximum number of individuals captured on any occasion (specially for single-catch trap approaches).
 }
 \examples{
-simEx <- remSim(100, 0.5, 4, 50)
+simEx <- remSim(200, 0.3, 4, 100)
 }
 \author{
 Fer Arce

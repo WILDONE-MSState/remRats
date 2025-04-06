@@ -4,12 +4,12 @@
 \alias{genHistRMark}
 \title{Fotrmatting removal data for RMark}
 \usage{
-genHistRMark(pop, events, msg = TRUE)
+genHistRMark(pop, events = NULL, msg = TRUE)
 }
 \arguments{
 \item{pop}{Numerical vector containing a sequence of numbers representiong the total number of animals extracted per night}
 
-\item{events}{Numeric. Number of removal events considering for futher analysis (equal or smaller than the number of trappiong events)}
+\item{events}{Numeric. Number of removal events considering for futher analysis (equal or smaller than the number of trapping events)}
 
 \item{msg}{\code{logical}. IF TRUE a short message containing the total number of individuals removed for the number of events considered is printed in the console.}
 }

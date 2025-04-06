@@ -12,25 +12,26 @@ MZest(n1, n2)
 \item{n2}{Number of individuals removed in the second event}
 }
 \value{
-a data frame containing the following values:
+a data frame containing one row with the following values:
 \itemize{
 \item Estimate: estimated population size
 \item sd: standard error of the Estimate
-\item lcl: lower value of the confidence interval
-\item ucl: upper value of confidence interval
+\item lcl: lower value of the 95% confidence interval
+\item ucl: upper value of the 95% confidence interval
 }
 }
 \description{
 This function generates an estimate of population size after two
-consecutive renmoval sessions using Moran-Zippin estimator
+consecutive removal events using a Moran-Zippin estimator
 }
 \details{
 Function to estimate the size of a population subject of two
 consecutive removal occasions. This function is provided for
 reference, as it relies in strong asumptions like equal
-catchability of individuals. Its use is strongly discouraged, and
-removal experiments should always consist of at least 3 removal
-events. The use of function \code{removeMLE} with at leasdt three
+catchability of individuals and representatitiviness of the
+sanmple suize. Its use is strongly discouraged, and removal
+experiments should always consist of at least 3 removal
+events. The use of function \code{removeMLE} with at least three
 sampling events should be the prefered approach as it adds more
 flexibility.
 
