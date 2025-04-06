@@ -12,11 +12,14 @@
 ##' @author Fer Arce
 ##' @export
 remSim<-function(N,p,j, max.capt = N){
-    ## if (!is.finite(max.capt))
-    ##     max.capt <- N
     Capt<-numeric(j)
+    if (length(p) == 1) {
+        p <- rep(p, j)
+    } else if (length(p) != j) {
+        stop("Length of p must be either 1 or equal to j.")
+    }
     for (i in 1:j){
-        trial <- sum(rbinom(N-sum(Capt),1,prob=p))
+        trial <- sum(rbinom(N-sum(Capt),1,prob=p[i]))
         Capt[i]<- ifelse(trial > max.capt, max.capt, trial)
     }
     return(Capt)
