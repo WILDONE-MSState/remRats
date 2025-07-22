@@ -56,7 +56,7 @@ plot(df$n.occ, df$Ncumu,
      xaxt = "n", yaxt = "n"
      )
           axis(1, cex.axis = 1.2)
-          axis(2, cex.axis = 1.2)\
+          axis(2, cex.axis = 1.2)
           abline(h = pretty(df$Ncumu), col = "grey90", lwd = 1)
           abline(v = pretty(df$n.occ), col = "grey90", lwd = 1)
           lines(df$n.occ, df$Ncumu, col = "blue", lwd = 2)
