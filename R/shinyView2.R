@@ -53,15 +53,14 @@ plot(df$n.occ, df$Ncumu,
      ylab = "Cumulative number of Catches", 
      cex.lab = 1.5,
      bty = "n", 
-     xaxt = "n", yaxt = "n")
-
-axis(1, cex.axis = 1.2)
-axis(2, cex.axis = 1.2)
-
-abline(h = pretty(df$Ncumu), col = "grey90", lwd = 1)
-
-lines(df$n.occ, df$Ncumu, col = "blue", lwd = 2)
-points(df$n.occ, df$Ncumu, col = "blue", pch = 16, cex = 1.5)
+     xaxt = "n", yaxt = "n"
+     )
+          axis(1, cex.axis = 1.2)
+          axis(2, cex.axis = 1.2)\
+          abline(h = pretty(df$Ncumu), col = "grey90", lwd = 1)
+          abline(v = pretty(df$n.occ), col = "grey90", lwd = 1)
+          lines(df$n.occ, df$Ncumu, col = "blue", lwd = 2)
+          points(df$n.occ, df$Ncumu, col = "blue", pch = 16, cex = 1.5)
 
     })
     
@@ -71,27 +70,67 @@ points(df$n.occ, df$Ncumu, col = "blue", pch = 16, cex = 1.5)
     })
     output$plot2 <- renderPlot({
       df <- popEst$Nest
-      ggplot(df, aes(x = n.occ, y = Nestimate)) +
-                        geom_ribbon(aes(ymin = Nlcl, ymax = Nucl), fill = "lightblue", alpha = 0.3) +
-          geom_point(color = "darkgreen", size = 3) +
-          geom_line(color = "darkgreen") +
-          labs(x = "Trapping occasion", y = "Population estimate") +
-            theme_minimal() +
-            theme(axis.title = element_text(size = rel(2)))
+      par(mar = c(5, 5, 2, 2))
+      plot(df$n.occ, df$Nestimate,
+           type = "n",
+           xlab = "Trapping occasion",
+           ylab = "Population estimate",
+           cex.lab = 1.5,
+           bty = "n",
+           xaxt = "n", yaxt = "n",
+           ylim = range(df$Nlcl, df$Nucl, na.rm = TRUE))
+      axis(1, cex.axis = 1.2)
+      axis(2, cex.axis = 1.2)
+      abline(h = pretty(df$Nestimate), col = "grey90", lwd = 1)
+      abline(v = pretty(df$n.occ), col = "grey90", lwd = 1)
+
+      polygon(c(df$n.occ, rev(df$n.occ)),
+              c(df$Nlcl, rev(df$Nucl)),
+              col = adjustcolor("lightblue", alpha.f = 0.3),
+              border = NA)
+      
+      lines(df$n.occ, df$Nestimate, col = "darkgreen", lwd = 2)
+      points(df$n.occ, df$Nestimate, col = "darkgreen", pch = 16, cex = 1.5)
+
     })
       ## % of population trapped tab
     output$table3 <- DT::renderDataTable({
       DT::datatable(popEst$Nprops, colnames = c("Trapping occasion", "Cumulative number of individuals", "% of the population sampled", "% (Lower ci)", "% (upper ci)"))
     })
     output$plot3 <- renderPlot({
-      df <- popEst$Nprops
-      ggplot(df, aes(x = n.occ, y = Pestimate)) +
-                                  geom_ribbon(aes(ymin = Plcl, ymax = Pucl), fill = "lightblue", alpha = 0.3) +
-          geom_point(color = "purple", size = 3) +
-          geom_line(color = "purple") +
-          labs(x = "Trapping occasion", y = "% of the population Sampled") +
-            theme_minimal() +
-            theme(axis.title = element_text(size = rel(2)))
+        df <- popEst$Nprops
+
+# Set up plotting area
+        par(mar = c(5, 5, 2, 2))
+
+# Empty plot to lay out grid and ribbon
+        plot(df$n.occ, df$Pestimate,
+             type = "n",
+             xlab = "Trapping occasion",
+             ylab = "% of the population Sampled",
+             cex.lab = 1.5,
+             bty = "n",
+             xaxt = "n", yaxt = "n",
+             ylim = range(df$Plcl, df$Pucl, na.rm = TRUE))
+
+# Axes
+        axis(1, cex.axis = 1.2)
+        axis(2, cex.axis = 1.2)
+
+# Grid lines
+        abline(h = pretty(df$Pestimate), col = "grey90", lwd = 1)
+        abline(v = pretty(df$n.occ), col = "grey90", lwd = 1)
+
+# Confidence ribbon
+        polygon(c(df$n.occ, rev(df$n.occ)),
+                c(df$Plcl, rev(df$Pucl)),
+                col = adjustcolor("lightblue", alpha.f = 0.3),
+                border = NA)
+
+# Add points and line
+        lines(df$n.occ, df$Pestimate, col = "purple", lwd = 2)
+        points(df$n.occ, df$Pestimate, col = "purple", pch = 16, cex = 1.5)
+        
     })
       ## Population proejction
       observeEvent(input$run_btn, {
@@ -105,13 +144,41 @@ points(df$n.occ, df$Ncumu, col = "blue", pch = 16, cex = 1.5)
           })     
           output$plot4 <- renderPlot({
               df <- result
-              ggplot(df, aes(x = n.occ, y = fit)) +
-                  geom_ribbon(aes(ymin = lcl, ymax = ucl), fill = "lightblue", alpha = 0.3) +
-                  geom_point(color = "purple", size = 3) +
-                  geom_line(color = "purple") +
-                  labs(x = "Trapping occasion", y = "% of the population Sampled") +
-                  theme_minimal() +
-                  theme(axis.title = element_text(size = rel(2)))
+              
+                                        # Set up margins for large axis labels
+              par(mar = c(5, 5, 2, 2))
+              
+                                        # Empty plot with appropriate y-axis range
+              plot(df$n.occ, df$fit,
+                   type = "n",
+                   xlab = "Trapping occasion",
+                   ylab = "% of the population Sampled",
+                   cex.lab = 1.5,
+                   bty = "n",
+                   xaxt = "n", yaxt = "n",
+                   ylim = range(df$lcl, df$ucl, na.rm = TRUE))
+              
+                                        # Add axes
+              axis(1, cex.axis = 1.2)
+              
+                                        # Y-axis with % labels
+              yticks <- pretty(df$fit)
+              axis(2, at = yticks, labels = paste0(round(yticks * 100), "%"), cex.axis = 1.2)
+              
+                                        # Add grid lines
+              abline(h = yticks, col = "grey90", lwd = 1)
+              abline(v = pretty(df$n.occ), col = "grey90", lwd = 1)
+              
+                                        # Add confidence ribbon
+              polygon(c(df$n.occ, rev(df$n.occ)),
+                      c(df$lcl, rev(df$ucl)),
+                      col = adjustcolor("lightblue", alpha.f = 0.3),
+                      border = NA)
+              
+                                        # Add points and line
+              lines(df$n.occ, df$fit, col = "purple", lwd = 2)
+              points(df$n.occ, df$fit, col = "purple", pch = 16, cex = 1.5)
+              
           })
       })
       
