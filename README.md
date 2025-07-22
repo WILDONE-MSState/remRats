@@ -34,7 +34,7 @@ diversity/composition, to manage both endangered or invasive
 populations, or for disease surveillance. However, data from removal
 experiments is oftern presented in a diverse set of ways, making them
 hardly comparably between studies. Futhermore, it is often de case where
-it is only reported the actual number of individuals sampled (i.e. for
+it is only reported the actual number of individuals sampled (i.e. for
 disease surveillance) that hamper its own usefulness as with these data
 delivery there is no way to assess the representability of the samples
 with respect to the population where they have been collected.
@@ -53,9 +53,11 @@ keep running the sampling scheme).
 
 remRats all the several steps mentioned above into a single function
 `remRats` that generates some of the outputs and allow to display them
-in a Shiny app where the suer may define the projection window to see
-the near future perfiormance of the remoival scheme given the current
-state of it.
+in a Shiny app where the user is allowed to, on the basis on the
+information already collected, define a projection time window
+(i.e. extra sampling sessions) to see the expected outcome of these
+efforts ansd evaluate the feasibility or achiveing given the current
+field conditions.
 
 ## Installation:
 

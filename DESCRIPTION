@@ -10,7 +10,7 @@ Description: Package remRats contains a collection of functions in-purposed
     design to estimate population size of wild organisms subject to removal
     experiments. It allow the end user to project expected captures for the following removal sessions ands re-evaluate thus the goals of the project.
 Maintainer: Fernando Arce <farcego@gmail.com>
-Depends: R (>= 3.5.0), RMark, mgcv, shiny, DT, ggplot2
+Depends: R (>= 3.5.0), RMark, mgcv, shiny, DT
 License: GPL-3
 URL: https://github.com/WILDONE-MSState/remRats
 BugReports: https://github.com/WILDONE-MSState/remRats/issues

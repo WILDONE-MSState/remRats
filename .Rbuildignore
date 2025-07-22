@@ -9,3 +9,5 @@ closed.R
 graphics.R
 ^~
 ^#
+.gitignore
+.git/
