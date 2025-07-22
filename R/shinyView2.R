@@ -63,7 +63,7 @@ plot(df$n.occ, df$Ncumu,
           points(df$n.occ, df$Ncumu, col = "blue", pch = 16, cex = 1.5)
 
     })
-    
+
     # Population estimate tab
     output$table2 <- DT::renderDataTable({
       DT::datatable(popEst$Nprops, colnames = c("Trapping occasion", "Population size estimate", "Standard error", "% (Lower ci)", "% (upper ci)"))
