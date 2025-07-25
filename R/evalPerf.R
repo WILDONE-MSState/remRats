@@ -2,7 +2,7 @@
 ##' .. content for \description{} (no empty lines) ..
 ##'
 ##' This function evaluates the current progress of the removal experiment according to a given goal of trapping a  proportion of the population with a fixed nunmber of trapping events.
-##' @title 
+##' @title performance evaluation
 ##' @param Data an object of class fittedRemMLERec. If not, it has to be called.
 ##' @param fixed Number of originally fixed trapping days
 ##' @param goal proportion of the population aimed to be collected
