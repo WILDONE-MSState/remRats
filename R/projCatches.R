@@ -4,13 +4,13 @@
 ##' This function fits a gam model to the provided number of
 ##' cumulative captures, and then project the model fit to near future
 ##' trapping events
-##' @title
+##' @title capture projection
 ##' @param Data an object of class 'fittedRemMLERec'.
 ##' @param proj numbers of future days to be projected.
 ##' @param sub optionalfurther passes to fitCatches and inside this function
 ##' @param ... further arguments to be imposed to fitCatches (like
 ##'     smoothing parameter or subset od data to fit the gam)
-##' @return
+##' @return predicted values
 ##' @author Fer Arce
 ##' @export
 projCatches <- function(Data, proj = 1, sub = NULL, ...) {
