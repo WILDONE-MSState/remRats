@@ -131,91 +131,69 @@ mleEst <- function(Data, level = 0.95, upperLimit = 1000) {
 
 
 
-rem <- remSim(N=500,p=.35,j=5)
-popEst <- remRats(rem)
-
-mleRem2(rem)
-
-
-
-fit_removal_DA_MLE <- function(y, covariate = NULL, cov = FALSE, M_factor = 2) {
-  n <- nrow(y)
-  T <- ncol(y)
-  M <- n * M_factor
+## fit_removal_DA_MLE <- function(y, covariate = NULL, cov = FALSE, M_factor = 2) {
+##   n <- nrow(y)
+##   T <- ncol(y)
+##   M <- n * M_factor
   
-  # Augment data with 0 rows
-  y_aug <- rbind(y, matrix(0, nrow = M - n, ncol = T))
+##   # Augment data with 0 rows
+##   y_aug <- rbind(y, matrix(0, nrow = M - n, ncol = T))
   
-  # Covariate
-  if (cov) {
-    if (is.null(covariate)) stop("Covariate vector required if cov = TRUE")
-    x <- c(covariate, rep(0, M - n))
-  } else {
-    x <- rep(0, M)
-  }
+##   # Covariate
+##   if (cov) {
+##     if (is.null(covariate)) stop("Covariate vector required if cov = TRUE")
+##     x <- c(covariate, rep(0, M - n))
+##   } else {
+##     x <- rep(0, M)
+##   }
   
-  # Likelihood function
-  loglik <- function(params) {
-    psi <- plogis(params[1])             # inclusion probability
-    alpha <- params[2]                   # intercept for logit(p)
-    beta <- if (cov) params[3] else 0    # slope if covariate used
+##   # Likelihood function
+##   loglik <- function(params) {
+##     psi <- plogis(params[1])             # inclusion probability
+##     alpha <- params[2]                   # intercept for logit(p)
+##     beta <- if (cov) params[3] else 0    # slope if covariate used
     
-    logL <- 0
-    for (i in 1:M) {
-      lp <- alpha + beta * x[i]
-      p <- plogis(lp)
+##     logL <- 0
+##     for (i in 1:M) {
+##       lp <- alpha + beta * x[i]
+##       p <- plogis(lp)
       
-      # Prob of observed y[i,] if individual is real (z_i = 1)
-      prob_y_given_z1 <- prod(dbinom(y_aug[i, ], size = 1, prob = p))
+##       # Prob of observed y[i,] if individual is real (z_i = 1)
+##       prob_y_given_z1 <- prod(dbinom(y_aug[i, ], size = 1, prob = p))
       
-      # Prob if individual is fake (z_i = 0) — they must have all 0s
-      prob_y_given_z0 <- as.numeric(all(y_aug[i, ] == 0))  # 1 if all 0s, else 0
+##       # Prob if individual is fake (z_i = 0) — they must have all 0s
+##       prob_y_given_z0 <- as.numeric(all(y_aug[i, ] == 0))  # 1 if all 0s, else 0
       
-      # Mixture
-      prob_i <- psi * prob_y_given_z1 + (1 - psi) * prob_y_given_z0
+##       # Mixture
+##       prob_i <- psi * prob_y_given_z1 + (1 - psi) * prob_y_given_z0
       
-      # Add to log likelihood
-      logL <- logL + log(prob_i + 1e-10)  # stability
-    }
-    return(-logL)  # negative log-likelihood for minimization
-  }
+##       # Add to log likelihood
+##       logL <- logL + log(prob_i + 1e-10)  # stability
+##     }
+##     return(-logL)  # negative log-likelihood for minimization
+##   }
 
-  # Initial parameter guesses
-  init <- if (cov) c(qlogis(0.5), 0, 0) else c(qlogis(0.5), 0)
+##   # Initial parameter guesses
+##   init <- if (cov) c(qlogis(0.5), 0, 0) else c(qlogis(0.5), 0)
 
-  # Optimize
-  opt <- optim(init, loglik, method = "BFGS", hessian = TRUE)
+##   # Optimize
+##   opt <- optim(init, loglik, method = "BFGS", hessian = TRUE)
 
-  # Extract estimates
-  est <- opt$par
-  se <- sqrt(diag(solve(opt$hessian)))
-  psi_hat <- plogis(est[1])
-  alpha_hat <- est[2]
-  beta_hat <- if (cov) est[3] else NA
+##   # Extract estimates
+##   est <- opt$par
+##   se <- sqrt(diag(solve(opt$hessian)))
+##   psi_hat <- plogis(est[1])
+##   alpha_hat <- est[2]
+##   beta_hat <- if (cov) est[3] else NA
 
-  list(
-    psi = psi_hat,
-    alpha = alpha_hat,
-    beta = beta_hat,
-    logLik = -opt$value,
-    N_hat = round(M * psi_hat),
-    SEs = se,
-    cov_used = cov
-  )
-}
-
-
-## add AIC
-AIC = 2 * k - 2 * logLik
-
-# Simulated data
-set.seed(1)
-y <- matrix(rbinom(30, 1, 0.3), nrow = 10, ncol = 3)
-covariate <- rnorm(10)
-
-# Fit with covariate
-fit_removal_DA_MLE(y, covariate = covariate, cov = TRUE)
-
-# Fit without covariate
-fit_removal_DA_MLE(y, cov = FALSE)
+##   list(
+##     psi = psi_hat,
+##     alpha = alpha_hat,
+##     beta = beta_hat,
+##     logLik = -opt$value,
+##     N_hat = round(M * psi_hat),
+##     SEs = se,
+##     cov_used = cov
+##   )
+## }
 
