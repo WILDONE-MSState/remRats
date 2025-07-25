@@ -22,7 +22,6 @@
 ##' \item ucl: upper 95% confidence interval value
 ##' }
 ##' }
-##' @noRd
 ##' @examples
 ##' exPop <- removeMLE(genHistRMark(c(100,80,60),3))
 ##' @author Fer Arce
@@ -90,26 +89,26 @@ removeMLETime <- function(Data){
 }
 
 
-removeMLEeff <- function(Data, eff){
-    stopifnot(class(Data) == "HistRMarkLong")
-    c.1 = list(formula=~1, fixed = 0)
-    p.t = list(formula=~eff)
-    if(.Platform$OS.type == 'windows'){
-        File <- 'nul'
-    } else {
-        File <- '/dev/null'
-    }
-    sink(file = File)
-    data.mark <- data.frame(ch = Data[[1]]$ch, ind = ind, eff = eff)
-    ren<-RMark::mark(data.mark,model="Closed",
-                     model.parameters=list(c=c.1, p = p.t),
-                     delete=FALSE, hessian = TRUE, silent = TRUE)
-    sink()
-    N <- ren$results$derived
-    output <- list(Data = Data, result = N, model = ren)
-    class(output) <- 'fittedRemMLE'
-    return(output)
-}
+## removeMLEeff <- function(Data, eff){
+##     stopifnot(class(Data) == "HistRMarkLong")
+##     c.1 = list(formula=~1, fixed = 0)
+##     p.t = list(formula=~eff)
+##     if(.Platform$OS.type == 'windows'){
+##         File <- 'nul'
+##     } else {
+##         File <- '/dev/null'
+##     }
+##     sink(file = File)
+##     data.mark <- data.frame(ch = Data[[1]]$ch, ind = ind, eff = eff)
+##     ren<-RMark::mark(data.mark,model="Closed",
+##                      model.parameters=list(c=c.1, p = p.t),
+##                      delete=FALSE, hessian = TRUE, silent = TRUE)
+##     sink()
+##     N <- ren$results$derived
+##     output <- list(Data = Data, result = N, model = ren)
+##     class(output) <- 'fittedRemMLE'
+##     return(output)
+## }
 
 
 
@@ -129,7 +128,7 @@ removeMLEeff <- function(Data, eff){
 ##' }
 ##' @author Fer Arce
 ##' @method print fittedRemMLE
-##' @nd
+##' @noRd
   ##' @examples
 ##' print(removeMLE(genHistRMark(c(100,80,60),3)))
 print.fittedRemMLE <- function(x, ...){
@@ -157,7 +156,7 @@ print.fittedRemMLE <- function(x, ...){
 ##' \item ucl: 95\% upper confidence interval
 ##' }
 ##' @author Fer Arce
-##' @nd
+##' @noRd
 ##' @examples
 ##' myEstimate <- as.data.frame(removeMLE(genHistRMark(c(100,80,60),3)))
 as.data.frame.fittedRemMLE <- function(x, row.names, optional, ...){
