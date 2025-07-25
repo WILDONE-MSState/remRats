@@ -11,3 +11,6 @@ graphics.R
 ^#
 .gitignore
 .git/
+README.Rmd
+README.html
+randomP1000.RDS
