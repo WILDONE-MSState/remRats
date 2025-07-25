@@ -24,12 +24,12 @@ Function that defines the gam structured used.
 }
 \details{
 This function fits a gam to a processed object. The object of this
-function is to define the gam structure (mgvc model) over the
-cumulative number of animals removed, aimed to smoith a curve with
-will be projected in order to evakluate current and future
+function is to define the gam structure (mgcv model) over the
+cumulative number of animals removed, aimed to smooth a curve with
+will be projected in order to evaluate current and future
 performance of the removal experiment in regards the aims of the
 project. This function is not expected to be called by the end
-user
+user.
 }
 \author{
 Fer Arce
