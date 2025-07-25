@@ -14,10 +14,8 @@
 ##'     (It cannot be larger than n-1 occasions)
 ##' @param sub if prresent, subset of data to be be used for fitting
 ##'     the gam model
-##' @param length numbewr of occasionsto fit the model
 ##' @return the object of a fitted gam model.
 ##' @author Fer Arce
-##' @noRd
 fitCatches <- function(Data, k = 5, sub = NULL) {
     capts <- as.vector(Data$Nraw$Ncumu)
     if (!is.null(sub))
