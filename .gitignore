@@ -1,66 +1,34 @@
-# EMACS stuff
 *~
 *#
 .#*
 *.org
-
 test/
 progress/
 TODO.org
 .png
 *.html
 *.tex
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+*-Ex.R
+/*.tar.gz
+/*.Rcheck/
+.Rproj.user/
+
+# vignettes/*.html
+# vignettes/*.pdf
+
+*_cache/
+/cache/
+*.utf8.md
+*.knit.md
+.Renviron
+docs/
+po/*~
+*.RDS
 
 # custom files
 test.R
 closed.R
-
-# R stuff
-
-# History files
-.Rhistory
-.Rapp.history
-
-# Session Data files
-.RData
-
-# User-specific files
-.Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
-.Rproj.user/
-
-# # produced vignettes
-# vignettes/*.html
-# vignettes/*.pdf
-
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
-# translation temp files
-po/*~
-
-
-## RMD files
-*.RDS
