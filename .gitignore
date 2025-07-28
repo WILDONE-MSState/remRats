@@ -16,10 +16,8 @@ TODO.org
 /*.tar.gz
 /*.Rcheck/
 .Rproj.user/
-
 # vignettes/*.html
 # vignettes/*.pdf
-
 *_cache/
 /cache/
 *.utf8.md
@@ -28,7 +26,6 @@ TODO.org
 docs/
 po/*~
 *.RDS
-
 # custom files
 test.R
 closed.R
