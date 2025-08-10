@@ -5,11 +5,14 @@ Version: 0.9.1
 Authors@R: c(person("Fernando", "Arce", email = "farcego@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7622-3791")),
              person("Manuel", "Ruiz Aravena", email = "mir41@msstate.edu", role = "ctb"),
 	     person("Michael W.", "Sandel", email = "mws297@msstate.edu", role = "ctb"))
-Description: Package remRats contains a collection of functions in-purposed
-    designed to estimate population size of wild populations subject to removal
-    experiments. It allows the user to evaluate the performance of the removal
-    experiment on-real-time and to project expected captures for the following
-    removal sessions.
+
+Description: Package 'remRats' contains a collection of functions
+    in-purposed designed to estimate the size of wild populations
+    subject to removal experiments. By estimating the population size
+    after each removal, It allows the user to evaluate the performance
+    of the removal experiment on-real-time and to project expected
+    captures for the following removal sessions.
+
 Maintainer: Fernando Arce <farcego@gmail.com>
 Depends: R (>= 3.5.0), RMark, mgcv, shiny, DT
 License: GPL-3
