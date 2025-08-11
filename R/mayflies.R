@@ -10,6 +10,6 @@
 ##' @examples
 ##' data(mayflies)
 ##' @export
-"myflies"
+"mayflies"
 
 
