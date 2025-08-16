@@ -1,6 +1,6 @@
 Package: remRats
 Type: Package
-Title: Efficient Estimation of Population Size Under Removal Experimental Designs
+Title: Efficient `n-The-Ground` Estimation of Population Size Under Removal Experimental Designs
 Version: 0.9.1
 Authors@R: c(person("Fernando", "Arce", email = "farcego@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7622-3791")),
              person("Manuel", "Ruiz Aravena", email = "mir41@msstate.edu", role = "ctb"),
@@ -9,9 +9,10 @@ Authors@R: c(person("Fernando", "Arce", email = "farcego@gmail.com", role = c("a
 Description: Package 'remRats' contains a collection of functions
     in-purposed designed to estimate the size of wild populations
     subject to removal experiments. By estimating the population size
-    after each removal, It allows the user to evaluate the performance
-    of the removal experiment on-real-time and to project expected
-    captures for the following removal sessions.
+    after each removal event, It allows the user to evaluate the
+    performance of the removal experiment on-real-time, estimate the
+    proportion of the population remainig non-trapped, and to project
+    the expected captures during the following removal events.
 
 Maintainer: Fernando Arce <farcego@gmail.com>
 Depends: R (>= 3.5.0), RMark, mgcv, shiny, DT
