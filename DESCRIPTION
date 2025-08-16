@@ -1,6 +1,6 @@
 Package: remRats
 Type: Package
-Title: Efficient `n-The-Ground` Estimation of Population Size Under Removal Experimental Designs
+Title: Efficient `in-The-Ground` Estimation of Population Size Under Removal Experimental Designs
 Version: 0.9.1
 Authors@R: c(person("Fernando", "Arce", email = "farcego@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7622-3791")),
              person("Manuel", "Ruiz Aravena", email = "mir41@msstate.edu", role = "ctb"),
